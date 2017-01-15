@@ -10,11 +10,11 @@
 		023C8E031E2B265C007544E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C8E021E2B265C007544E5 /* AppDelegate.swift */; };
 		023C8E051E2B265C007544E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C8E041E2B265C007544E5 /* ViewController.swift */; };
 		023C8E081E2B265C007544E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023C8E061E2B265C007544E5 /* Main.storyboard */; };
-		023C8E0B1E2B265C007544E5 /* MovieTIme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 023C8E091E2B265C007544E5 /* MovieTIme.xcdatamodeld */; };
+		023C8E0B1E2B265C007544E5 /* MovieTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 023C8E091E2B265C007544E5 /* MovieTime.xcdatamodeld */; };
 		023C8E0D1E2B265C007544E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023C8E0C1E2B265C007544E5 /* Assets.xcassets */; };
 		023C8E101E2B265C007544E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023C8E0E1E2B265C007544E5 /* LaunchScreen.storyboard */; };
-		023C8E1B1E2B265C007544E5 /* MovieTImeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C8E1A1E2B265C007544E5 /* MovieTImeTests.swift */; };
-		023C8E261E2B265C007544E5 /* MovieTImeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C8E251E2B265C007544E5 /* MovieTImeUITests.swift */; };
+		023C8E1B1E2B265C007544E5 /* MovieTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C8E1A1E2B265C007544E5 /* MovieTimeTests.swift */; };
+		023C8E261E2B265C007544E5 /* MovieTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C8E251E2B265C007544E5 /* MovieTimeUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,19 +35,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		023C8DFF1E2B265C007544E5 /* MovieTIme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieTIme.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		023C8DFF1E2B265C007544E5 /* MovieTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		023C8E021E2B265C007544E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		023C8E041E2B265C007544E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		023C8E071E2B265C007544E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		023C8E0A1E2B265C007544E5 /* MovieTIme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieTIme.xcdatamodel; sourceTree = "<group>"; };
+		023C8E0A1E2B265C007544E5 /* MovieTime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieTime.xcdatamodel; sourceTree = "<group>"; };
 		023C8E0C1E2B265C007544E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		023C8E0F1E2B265C007544E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		023C8E111E2B265C007544E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		023C8E161E2B265C007544E5 /* MovieTImeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieTImeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		023C8E1A1E2B265C007544E5 /* MovieTImeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTImeTests.swift; sourceTree = "<group>"; };
+		023C8E161E2B265C007544E5 /* MovieTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		023C8E1A1E2B265C007544E5 /* MovieTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTimeTests.swift; sourceTree = "<group>"; };
 		023C8E1C1E2B265C007544E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		023C8E211E2B265C007544E5 /* MovieTImeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieTImeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		023C8E251E2B265C007544E5 /* MovieTImeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTImeUITests.swift; sourceTree = "<group>"; };
+		023C8E211E2B265C007544E5 /* MovieTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		023C8E251E2B265C007544E5 /* MovieTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTimeUITests.swift; sourceTree = "<group>"; };
 		023C8E271E2B265C007544E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,9 +79,9 @@
 		023C8DF61E2B265B007544E5 = {
 			isa = PBXGroup;
 			children = (
-				023C8E011E2B265C007544E5 /* MovieTIme */,
-				023C8E191E2B265C007544E5 /* MovieTImeTests */,
-				023C8E241E2B265C007544E5 /* MovieTImeUITests */,
+				023C8E011E2B265C007544E5 /* MovieTime */,
+				023C8E191E2B265C007544E5 /* MovieTimeTests */,
+				023C8E241E2B265C007544E5 /* MovieTimeUITests */,
 				023C8E001E2B265C007544E5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,14 +89,14 @@
 		023C8E001E2B265C007544E5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				023C8DFF1E2B265C007544E5 /* MovieTIme.app */,
-				023C8E161E2B265C007544E5 /* MovieTImeTests.xctest */,
-				023C8E211E2B265C007544E5 /* MovieTImeUITests.xctest */,
+				023C8DFF1E2B265C007544E5 /* MovieTime.app */,
+				023C8E161E2B265C007544E5 /* MovieTimeTests.xctest */,
+				023C8E211E2B265C007544E5 /* MovieTimeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		023C8E011E2B265C007544E5 /* MovieTIme */ = {
+		023C8E011E2B265C007544E5 /* MovieTime */ = {
 			isa = PBXGroup;
 			children = (
 				023C8E021E2B265C007544E5 /* AppDelegate.swift */,
@@ -105,35 +105,38 @@
 				023C8E0C1E2B265C007544E5 /* Assets.xcassets */,
 				023C8E0E1E2B265C007544E5 /* LaunchScreen.storyboard */,
 				023C8E111E2B265C007544E5 /* Info.plist */,
-				023C8E091E2B265C007544E5 /* MovieTIme.xcdatamodeld */,
+				023C8E091E2B265C007544E5 /* MovieTime.xcdatamodeld */,
 			);
+			name = MovieTime;
 			path = MovieTIme;
 			sourceTree = "<group>";
 		};
-		023C8E191E2B265C007544E5 /* MovieTImeTests */ = {
+		023C8E191E2B265C007544E5 /* MovieTimeTests */ = {
 			isa = PBXGroup;
 			children = (
-				023C8E1A1E2B265C007544E5 /* MovieTImeTests.swift */,
+				023C8E1A1E2B265C007544E5 /* MovieTimeTests.swift */,
 				023C8E1C1E2B265C007544E5 /* Info.plist */,
 			);
+			name = MovieTimeTests;
 			path = MovieTImeTests;
 			sourceTree = "<group>";
 		};
-		023C8E241E2B265C007544E5 /* MovieTImeUITests */ = {
+		023C8E241E2B265C007544E5 /* MovieTimeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				023C8E251E2B265C007544E5 /* MovieTImeUITests.swift */,
+				023C8E251E2B265C007544E5 /* MovieTimeUITests.swift */,
 				023C8E271E2B265C007544E5 /* Info.plist */,
 			);
+			name = MovieTimeUITests;
 			path = MovieTImeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		023C8DFE1E2B265B007544E5 /* MovieTIme */ = {
+		023C8DFE1E2B265B007544E5 /* MovieTime */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 023C8E2A1E2B265C007544E5 /* Build configuration list for PBXNativeTarget "MovieTIme" */;
+			buildConfigurationList = 023C8E2A1E2B265C007544E5 /* Build configuration list for PBXNativeTarget "MovieTime" */;
 			buildPhases = (
 				023C8DFB1E2B265B007544E5 /* Sources */,
 				023C8DFC1E2B265B007544E5 /* Frameworks */,
@@ -143,14 +146,14 @@
 			);
 			dependencies = (
 			);
-			name = MovieTIme;
+			name = MovieTime;
 			productName = MovieTIme;
-			productReference = 023C8DFF1E2B265C007544E5 /* MovieTIme.app */;
+			productReference = 023C8DFF1E2B265C007544E5 /* MovieTime.app */;
 			productType = "com.apple.product-type.application";
 		};
-		023C8E151E2B265C007544E5 /* MovieTImeTests */ = {
+		023C8E151E2B265C007544E5 /* MovieTimeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 023C8E2D1E2B265C007544E5 /* Build configuration list for PBXNativeTarget "MovieTImeTests" */;
+			buildConfigurationList = 023C8E2D1E2B265C007544E5 /* Build configuration list for PBXNativeTarget "MovieTimeTests" */;
 			buildPhases = (
 				023C8E121E2B265C007544E5 /* Sources */,
 				023C8E131E2B265C007544E5 /* Frameworks */,
@@ -161,14 +164,14 @@
 			dependencies = (
 				023C8E181E2B265C007544E5 /* PBXTargetDependency */,
 			);
-			name = MovieTImeTests;
+			name = MovieTimeTests;
 			productName = MovieTImeTests;
-			productReference = 023C8E161E2B265C007544E5 /* MovieTImeTests.xctest */;
+			productReference = 023C8E161E2B265C007544E5 /* MovieTimeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		023C8E201E2B265C007544E5 /* MovieTImeUITests */ = {
+		023C8E201E2B265C007544E5 /* MovieTimeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 023C8E301E2B265C007544E5 /* Build configuration list for PBXNativeTarget "MovieTImeUITests" */;
+			buildConfigurationList = 023C8E301E2B265C007544E5 /* Build configuration list for PBXNativeTarget "MovieTimeUITests" */;
 			buildPhases = (
 				023C8E1D1E2B265C007544E5 /* Sources */,
 				023C8E1E1E2B265C007544E5 /* Frameworks */,
@@ -179,9 +182,9 @@
 			dependencies = (
 				023C8E231E2B265C007544E5 /* PBXTargetDependency */,
 			);
-			name = MovieTImeUITests;
+			name = MovieTimeUITests;
 			productName = MovieTImeUITests;
-			productReference = 023C8E211E2B265C007544E5 /* MovieTImeUITests.xctest */;
+			productReference = 023C8E211E2B265C007544E5 /* MovieTimeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -210,7 +213,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 023C8DFA1E2B265B007544E5 /* Build configuration list for PBXProject "MovieTIme" */;
+			buildConfigurationList = 023C8DFA1E2B265B007544E5 /* Build configuration list for PBXProject "MovieTime" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -223,9 +226,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				023C8DFE1E2B265B007544E5 /* MovieTIme */,
-				023C8E151E2B265C007544E5 /* MovieTImeTests */,
-				023C8E201E2B265C007544E5 /* MovieTImeUITests */,
+				023C8DFE1E2B265B007544E5 /* MovieTime */,
+				023C8E151E2B265C007544E5 /* MovieTimeTests */,
+				023C8E201E2B265C007544E5 /* MovieTimeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -264,7 +267,7 @@
 			files = (
 				023C8E051E2B265C007544E5 /* ViewController.swift in Sources */,
 				023C8E031E2B265C007544E5 /* AppDelegate.swift in Sources */,
-				023C8E0B1E2B265C007544E5 /* MovieTIme.xcdatamodeld in Sources */,
+				023C8E0B1E2B265C007544E5 /* MovieTime.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				023C8E1B1E2B265C007544E5 /* MovieTImeTests.swift in Sources */,
+				023C8E1B1E2B265C007544E5 /* MovieTimeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				023C8E261E2B265C007544E5 /* MovieTImeUITests.swift in Sources */,
+				023C8E261E2B265C007544E5 /* MovieTimeUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,12 +292,12 @@
 /* Begin PBXTargetDependency section */
 		023C8E181E2B265C007544E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 023C8DFE1E2B265B007544E5 /* MovieTIme */;
+			target = 023C8DFE1E2B265B007544E5 /* MovieTime */;
 			targetProxy = 023C8E171E2B265C007544E5 /* PBXContainerItemProxy */;
 		};
 		023C8E231E2B265C007544E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 023C8DFE1E2B265B007544E5 /* MovieTIme */;
+			target = 023C8DFE1E2B265B007544E5 /* MovieTime */;
 			targetProxy = 023C8E221E2B265C007544E5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -414,7 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = MovieTIme/Info.plist;
+				INFOPLIST_FILE = MovieTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Brandon.MovieTIme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -426,7 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = MovieTIme/Info.plist;
+				INFOPLIST_FILE = MovieTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Brandon.MovieTIme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -439,12 +442,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = MovieTImeTests/Info.plist;
+				INFOPLIST_FILE = MovieTimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Brandon.MovieTImeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieTIme.app/MovieTIme";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieTime.temp_caseinsensitive_rename.app/MovieTime.temp_caseinsensitive_rename";
 			};
 			name = Debug;
 		};
@@ -453,12 +456,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = MovieTImeTests/Info.plist;
+				INFOPLIST_FILE = MovieTimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Brandon.MovieTImeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieTIme.app/MovieTIme";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieTime.temp_caseinsensitive_rename.app/MovieTime.temp_caseinsensitive_rename";
 			};
 			name = Release;
 		};
@@ -466,7 +469,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = MovieTImeUITests/Info.plist;
+				INFOPLIST_FILE = MovieTimeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Brandon.MovieTImeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -479,7 +482,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = MovieTImeUITests/Info.plist;
+				INFOPLIST_FILE = MovieTimeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Brandon.MovieTImeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -491,7 +494,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		023C8DFA1E2B265B007544E5 /* Build configuration list for PBXProject "MovieTIme" */ = {
+		023C8DFA1E2B265B007544E5 /* Build configuration list for PBXProject "MovieTime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				023C8E281E2B265C007544E5 /* Debug */,
@@ -500,40 +503,43 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		023C8E2A1E2B265C007544E5 /* Build configuration list for PBXNativeTarget "MovieTIme" */ = {
+		023C8E2A1E2B265C007544E5 /* Build configuration list for PBXNativeTarget "MovieTime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				023C8E2B1E2B265C007544E5 /* Debug */,
 				023C8E2C1E2B265C007544E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		023C8E2D1E2B265C007544E5 /* Build configuration list for PBXNativeTarget "MovieTImeTests" */ = {
+		023C8E2D1E2B265C007544E5 /* Build configuration list for PBXNativeTarget "MovieTimeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				023C8E2E1E2B265C007544E5 /* Debug */,
 				023C8E2F1E2B265C007544E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		023C8E301E2B265C007544E5 /* Build configuration list for PBXNativeTarget "MovieTImeUITests" */ = {
+		023C8E301E2B265C007544E5 /* Build configuration list for PBXNativeTarget "MovieTimeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				023C8E311E2B265C007544E5 /* Debug */,
 				023C8E321E2B265C007544E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		023C8E091E2B265C007544E5 /* MovieTIme.xcdatamodeld */ = {
+		023C8E091E2B265C007544E5 /* MovieTime.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				023C8E0A1E2B265C007544E5 /* MovieTIme.xcdatamodel */,
+				023C8E0A1E2B265C007544E5 /* MovieTime.xcdatamodel */,
 			);
-			currentVersion = 023C8E0A1E2B265C007544E5 /* MovieTIme.xcdatamodel */;
-			path = MovieTIme.xcdatamodeld;
+			currentVersion = 023C8E0A1E2B265C007544E5 /* MovieTime.xcdatamodel */;
+			path = MovieTime.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
