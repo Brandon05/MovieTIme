@@ -1,0 +1,660 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F14C249ED695859ECEE913BD2C18BBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		5C4155B83C364524329820CF4AD52458 /* Pods-MovieTimeUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A3C44288D4234E1927050BB760631E /* Pods-MovieTimeUITests-dummy.m */; };
+		70AFA58FBE42356504AE82E31294E9F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		76650DE77AD5D5CFA4CF60CEFED0AE90 /* Pods-MovieTimeTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF7A64394AD95E40FAD8257C5C8682E /* Pods-MovieTimeTests-dummy.m */; };
+		845370BD0D61BBEF8959BBA0D4D6BE9C /* Pods-MovieTimeTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AE8FB588F89FB8D5D7A269D0D7948FFD /* Pods-MovieTimeTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94E7EE1829B5E5FAF2BFE48C38254DA5 /* Pods-MovieTimeUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1639465E0703D0624C1A9445E88D249C /* Pods-MovieTimeUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC33FD7117170BE8CC12E6542500A0C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		D0D26A8D113A79B832DBB44B1A4B7210 /* Pods-MovieTime-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2CDED4919E9D28455117F31AB2348E /* Pods-MovieTime-dummy.m */; };
+		EE56DA4EC3F53F9D242043F090EB1735 /* Pods-MovieTime-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BCB7A3CF4BBFD265951814CD73D348D4 /* Pods-MovieTime-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		00703B93F4C3D3B7EA50D276933B27BA /* Pods-MovieTimeUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MovieTimeUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		1423BC379A1D8A95A549ABE368E4D7A7 /* Pods_MovieTimeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MovieTimeUITests.framework; path = "Pods-MovieTimeUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1639465E0703D0624C1A9445E88D249C /* Pods-MovieTimeUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MovieTimeUITests-umbrella.h"; sourceTree = "<group>"; };
+		1AB54F906F2FEFBECB1D4C3F0358E69F /* Pods-MovieTime-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MovieTime-acknowledgements.plist"; sourceTree = "<group>"; };
+		21573CB3301C0F3E076A649B25743079 /* Pods-MovieTimeUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MovieTimeUITests-resources.sh"; sourceTree = "<group>"; };
+		217240368FCE0137383EE961B3C7103C /* Pods-MovieTimeTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MovieTimeTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		25C43278ACA05C1F7C330AD86DE15170 /* Pods-MovieTimeTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MovieTimeTests-frameworks.sh"; sourceTree = "<group>"; };
+		28A2EC87A0FB52106632FEE629A41C41 /* Pods-MovieTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MovieTime.release.xcconfig"; sourceTree = "<group>"; };
+		3066B9592976ACDB2A20A873FA3D2A28 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		384448966CA0FB6F5F2A860619D3700F /* Pods-MovieTimeTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MovieTimeTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3F1DCAF5EE942C4C94BB4A21A388019E /* Pods-MovieTime-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MovieTime-resources.sh"; sourceTree = "<group>"; };
+		4D03861261BD628D518F013224BAA067 /* Pods-MovieTime.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MovieTime.modulemap"; sourceTree = "<group>"; };
+		4D5029A18592AF372937BBE904DDB7AE /* Pods_MovieTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MovieTime.framework; path = "Pods-MovieTime.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F918B56F174C04D90AD1BBA1786FB7F /* Pods-MovieTime-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MovieTime-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5E937E828B25FF1F57289997F3E658EC /* Pods-MovieTimeTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MovieTimeTests.modulemap"; sourceTree = "<group>"; };
+		6BEA848AA86F38E82A6960528FEE84E8 /* Pods-MovieTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MovieTime.debug.xcconfig"; sourceTree = "<group>"; };
+		6E1338D131F9574F2E18259D4CB55107 /* Pods-MovieTimeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MovieTimeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		84B5520D7ECC2317388A03DC47E8909E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86F9096D06ABBF6A952ADA5F3895D97B /* Pods-MovieTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MovieTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B6654A707C36D1CA324F7D28757BE1D /* Pods-MovieTimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MovieTimeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EF7A64394AD95E40FAD8257C5C8682E /* Pods-MovieTimeTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MovieTimeTests-dummy.m"; sourceTree = "<group>"; };
+		A8A3C44288D4234E1927050BB760631E /* Pods-MovieTimeUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MovieTimeUITests-dummy.m"; sourceTree = "<group>"; };
+		ACBD15BB6C25004F6F00FDF8B0D3C681 /* Pods-MovieTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MovieTimeTests.release.xcconfig"; sourceTree = "<group>"; };
+		AE8FB588F89FB8D5D7A269D0D7948FFD /* Pods-MovieTimeTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MovieTimeTests-umbrella.h"; sourceTree = "<group>"; };
+		B9EA12EED5CD7ECAFAD4A0FAEF6B429E /* Pods-MovieTimeUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MovieTimeUITests-frameworks.sh"; sourceTree = "<group>"; };
+		BCB7A3CF4BBFD265951814CD73D348D4 /* Pods-MovieTime-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MovieTime-umbrella.h"; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D53244B0CF345AB0149813C788274C07 /* Pods-MovieTimeUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MovieTimeUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D973461503CCBC54FE72571D20E37626 /* Pods-MovieTime-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MovieTime-frameworks.sh"; sourceTree = "<group>"; };
+		F3DA7BE0000AB12F2FBFCC61ED739AE6 /* Pods_MovieTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MovieTimeTests.framework; path = "Pods-MovieTimeTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8187F032A5EAE0A4D1E41442168281B /* Pods-MovieTimeUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MovieTimeUITests.modulemap"; sourceTree = "<group>"; };
+		FB2CDED4919E9D28455117F31AB2348E /* Pods-MovieTime-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MovieTime-dummy.m"; sourceTree = "<group>"; };
+		FB7BCFC33C3E1B988505F69D30ED17D8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD757041C317168A04EC2F26FCB89FA2 /* Pods-MovieTimeTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MovieTimeTests-resources.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		073AC0455CDBF9684C7D67C2A876A5B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F14C249ED695859ECEE913BD2C18BBC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C19490C40AEA979852CE89E84FDD524 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70AFA58FBE42356504AE82E31294E9F1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFC814EEF610E061275888BFEEA9BB6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC33FD7117170BE8CC12E6542500A0C2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A571DB1F02907E8CDD67CC4A751E326 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D5029A18592AF372937BBE904DDB7AE /* Pods_MovieTime.framework */,
+				F3DA7BE0000AB12F2FBFCC61ED739AE6 /* Pods_MovieTimeTests.framework */,
+				1423BC379A1D8A95A549ABE368E4D7A7 /* Pods_MovieTimeUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		277E81836DCD27043CDEC2E2A9CF9CC7 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0A34C28A07589218138B7290969C556 /* Pods-MovieTime */,
+				3F50FEB30880FF4FED024EB98E18420F /* Pods-MovieTimeTests */,
+				752563384157F465B34C01F6A83C368D /* Pods-MovieTimeUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3F50FEB30880FF4FED024EB98E18420F /* Pods-MovieTimeTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB7BCFC33C3E1B988505F69D30ED17D8 /* Info.plist */,
+				5E937E828B25FF1F57289997F3E658EC /* Pods-MovieTimeTests.modulemap */,
+				384448966CA0FB6F5F2A860619D3700F /* Pods-MovieTimeTests-acknowledgements.markdown */,
+				217240368FCE0137383EE961B3C7103C /* Pods-MovieTimeTests-acknowledgements.plist */,
+				9EF7A64394AD95E40FAD8257C5C8682E /* Pods-MovieTimeTests-dummy.m */,
+				25C43278ACA05C1F7C330AD86DE15170 /* Pods-MovieTimeTests-frameworks.sh */,
+				FD757041C317168A04EC2F26FCB89FA2 /* Pods-MovieTimeTests-resources.sh */,
+				AE8FB588F89FB8D5D7A269D0D7948FFD /* Pods-MovieTimeTests-umbrella.h */,
+				86F9096D06ABBF6A952ADA5F3895D97B /* Pods-MovieTimeTests.debug.xcconfig */,
+				ACBD15BB6C25004F6F00FDF8B0D3C681 /* Pods-MovieTimeTests.release.xcconfig */,
+			);
+			name = "Pods-MovieTimeTests";
+			path = "Target Support Files/Pods-MovieTimeTests";
+			sourceTree = "<group>";
+		};
+		752563384157F465B34C01F6A83C368D /* Pods-MovieTimeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				84B5520D7ECC2317388A03DC47E8909E /* Info.plist */,
+				F8187F032A5EAE0A4D1E41442168281B /* Pods-MovieTimeUITests.modulemap */,
+				D53244B0CF345AB0149813C788274C07 /* Pods-MovieTimeUITests-acknowledgements.markdown */,
+				00703B93F4C3D3B7EA50D276933B27BA /* Pods-MovieTimeUITests-acknowledgements.plist */,
+				A8A3C44288D4234E1927050BB760631E /* Pods-MovieTimeUITests-dummy.m */,
+				B9EA12EED5CD7ECAFAD4A0FAEF6B429E /* Pods-MovieTimeUITests-frameworks.sh */,
+				21573CB3301C0F3E076A649B25743079 /* Pods-MovieTimeUITests-resources.sh */,
+				1639465E0703D0624C1A9445E88D249C /* Pods-MovieTimeUITests-umbrella.h */,
+				6E1338D131F9574F2E18259D4CB55107 /* Pods-MovieTimeUITests.debug.xcconfig */,
+				8B6654A707C36D1CA324F7D28757BE1D /* Pods-MovieTimeUITests.release.xcconfig */,
+			);
+			name = "Pods-MovieTimeUITests";
+			path = "Target Support Files/Pods-MovieTimeUITests";
+			sourceTree = "<group>";
+		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				0A571DB1F02907E8CDD67CC4A751E326 /* Products */,
+				277E81836DCD27043CDEC2E2A9CF9CC7 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A0A34C28A07589218138B7290969C556 /* Pods-MovieTime */ = {
+			isa = PBXGroup;
+			children = (
+				3066B9592976ACDB2A20A873FA3D2A28 /* Info.plist */,
+				4D03861261BD628D518F013224BAA067 /* Pods-MovieTime.modulemap */,
+				4F918B56F174C04D90AD1BBA1786FB7F /* Pods-MovieTime-acknowledgements.markdown */,
+				1AB54F906F2FEFBECB1D4C3F0358E69F /* Pods-MovieTime-acknowledgements.plist */,
+				FB2CDED4919E9D28455117F31AB2348E /* Pods-MovieTime-dummy.m */,
+				D973461503CCBC54FE72571D20E37626 /* Pods-MovieTime-frameworks.sh */,
+				3F1DCAF5EE942C4C94BB4A21A388019E /* Pods-MovieTime-resources.sh */,
+				BCB7A3CF4BBFD265951814CD73D348D4 /* Pods-MovieTime-umbrella.h */,
+				6BEA848AA86F38E82A6960528FEE84E8 /* Pods-MovieTime.debug.xcconfig */,
+				28A2EC87A0FB52106632FEE629A41C41 /* Pods-MovieTime.release.xcconfig */,
+			);
+			name = "Pods-MovieTime";
+			path = "Target Support Files/Pods-MovieTime";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		09A09FE6FC7DA36ECBF3956C027335C3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE56DA4EC3F53F9D242043F090EB1735 /* Pods-MovieTime-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ABD531A4278A70E826DEA24531E9982 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845370BD0D61BBEF8959BBA0D4D6BE9C /* Pods-MovieTimeTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6DF9DF8A7BDE59AB1D0F1562271CB40 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94E7EE1829B5E5FAF2BFE48C38254DA5 /* Pods-MovieTimeUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4B4D454C71F8D600E6EAFCA05775CFFE /* Pods-MovieTime */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E379222E76F557078B667D6D6AF2A8A /* Build configuration list for PBXNativeTarget "Pods-MovieTime" */;
+			buildPhases = (
+				EE97CBF7C350F2266013FA0FCF4AF8CF /* Sources */,
+				073AC0455CDBF9684C7D67C2A876A5B4 /* Frameworks */,
+				09A09FE6FC7DA36ECBF3956C027335C3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MovieTime";
+			productName = "Pods-MovieTime";
+			productReference = 4D5029A18592AF372937BBE904DDB7AE /* Pods_MovieTime.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		66B4262D55996F79C6A8FC71328EA540 /* Pods-MovieTimeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDE5601176709269E50C8033408DA57F /* Build configuration list for PBXNativeTarget "Pods-MovieTimeTests" */;
+			buildPhases = (
+				525B563104298D35FD62C4D33C0BD149 /* Sources */,
+				9C19490C40AEA979852CE89E84FDD524 /* Frameworks */,
+				3ABD531A4278A70E826DEA24531E9982 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MovieTimeTests";
+			productName = "Pods-MovieTimeTests";
+			productReference = F3DA7BE0000AB12F2FBFCC61ED739AE6 /* Pods_MovieTimeTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8731A8F4D6381917DCB6DCF3283C3330 /* Pods-MovieTimeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7167A40C278AC697CD6133512DCBFC24 /* Build configuration list for PBXNativeTarget "Pods-MovieTimeUITests" */;
+			buildPhases = (
+				FFDD223290CE94131F1787B64A171D4A /* Sources */,
+				DFC814EEF610E061275888BFEEA9BB6E /* Frameworks */,
+				B6DF9DF8A7BDE59AB1D0F1562271CB40 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MovieTimeUITests";
+			productName = "Pods-MovieTimeUITests";
+			productReference = 1423BC379A1D8A95A549ABE368E4D7A7 /* Pods_MovieTimeUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 0A571DB1F02907E8CDD67CC4A751E326 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B4D454C71F8D600E6EAFCA05775CFFE /* Pods-MovieTime */,
+				66B4262D55996F79C6A8FC71328EA540 /* Pods-MovieTimeTests */,
+				8731A8F4D6381917DCB6DCF3283C3330 /* Pods-MovieTimeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		525B563104298D35FD62C4D33C0BD149 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76650DE77AD5D5CFA4CF60CEFED0AE90 /* Pods-MovieTimeTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE97CBF7C350F2266013FA0FCF4AF8CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0D26A8D113A79B832DBB44B1A4B7210 /* Pods-MovieTime-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFDD223290CE94131F1787B64A171D4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C4155B83C364524329820CF4AD52458 /* Pods-MovieTimeUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		18FB7CF86D19324707E70CD12CE80AAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BEA848AA86F38E82A6960528FEE84E8 /* Pods-MovieTime.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MovieTime/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MovieTime/Pods-MovieTime.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MovieTime;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5621DA314EE3A976DF3B3F3E0ACBDE4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86F9096D06ABBF6A952ADA5F3895D97B /* Pods-MovieTimeTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MovieTimeTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MovieTimeTests/Pods-MovieTimeTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MovieTimeTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		673254EEAF0B5BF4596080C749645884 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		700B805BAC1C2807DEFF57ADE8E69DF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E1338D131F9574F2E18259D4CB55107 /* Pods-MovieTimeUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MovieTimeUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MovieTimeUITests/Pods-MovieTimeUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MovieTimeUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9889E3BDBC6ABC312C19C281F12F9F89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACBD15BB6C25004F6F00FDF8B0D3C681 /* Pods-MovieTimeTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MovieTimeTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MovieTimeTests/Pods-MovieTimeTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MovieTimeTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B53C123D26557019F821322B32682DAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B6654A707C36D1CA324F7D28757BE1D /* Pods-MovieTimeUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MovieTimeUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MovieTimeUITests/Pods-MovieTimeUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MovieTimeUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BCAFFF472D229EB01FAF500453C3EAE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A2EC87A0FB52106632FEE629A41C41 /* Pods-MovieTime.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MovieTime/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MovieTime/Pods-MovieTime.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MovieTime;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */,
+				673254EEAF0B5BF4596080C749645884 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7167A40C278AC697CD6133512DCBFC24 /* Build configuration list for PBXNativeTarget "Pods-MovieTimeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				700B805BAC1C2807DEFF57ADE8E69DF0 /* Debug */,
+				B53C123D26557019F821322B32682DAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E379222E76F557078B667D6D6AF2A8A /* Build configuration list for PBXNativeTarget "Pods-MovieTime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18FB7CF86D19324707E70CD12CE80AAF /* Debug */,
+				BCAFFF472D229EB01FAF500453C3EAE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDE5601176709269E50C8033408DA57F /* Build configuration list for PBXNativeTarget "Pods-MovieTimeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5621DA314EE3A976DF3B3F3E0ACBDE4D /* Debug */,
+				9889E3BDBC6ABC312C19C281F12F9F89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
