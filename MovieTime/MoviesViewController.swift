@@ -12,9 +12,17 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet var moviesTableView: UITableView!
     
+    var movies = [Movie]() {
+        didSet {
+            moviesTableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMovies()
+        moviesTableView.dataSource = self
+        moviesTableView.delegate = self
+        getMovies(fromService: MovieService())
         // Do any additional setup after loading the view.
     }
 
@@ -23,28 +31,11 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-    var dataSource = NSDictionary() {
-        didSet {
-            moviesTableView.reloadData()
-        }
-    }
-    
-    private func getMovies() {
-        // the get funciton is called here
-        MovieService().get() { [weak self] result in
-            switch result {
-            case .success(let movie):
-                print(movie)
-                self?.dataSource = movie
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        //guard movies != nil else {return 0}
+        
+        return movies.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,31 +45,9 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             fatalError("Could not dequeue cell with identifier: movieCell")
         }
         
+        cell.textLabel?.text = "row \(movies[indexPath.row].title)"
+        
         return cell
-    }
-    
-    struct MovieService {
-        
-        func get(completionHandler: @escaping (Result<NSDictionary>) -> Void) {
-            
-            let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-            let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")!
-            let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-            let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-            let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-                if let data = data {
-                    if let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
-                        //print(dataDictionary)
-                        completionHandler(Result.success(dataDictionary))
-                    }
-                }
-            }
-            
-            task.resume()
-            // make asynchronous API call
-            // and return appropriate result
-        }
-        
     }
     
     
@@ -95,7 +64,31 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 }
 
-enum Result<T> {
-    case success(T)
-    case failure(Error)
+extension MoviesViewController {
+    func getMovies<Service: Gettable>(fromService service: Service) where Service.data == [Movie] {
+        // the get funciton is called here
+        service.get() { [weak self] result in
+            switch result {
+            case .success(let movies):
+                print(movies)
+                self?.movies = movies
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

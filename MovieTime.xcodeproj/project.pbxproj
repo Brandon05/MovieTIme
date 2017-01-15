@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020D890D1E2C02AB003BE2DC /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D890C1E2C02AB003BE2DC /* NetworkRequest.swift */; };
 		022F53761E2B3F4A004CB060 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F53751E2B3F4A004CB060 /* MoviesViewController.swift */; };
 		022F53781E2B4054004CB060 /* movieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F53771E2B4054004CB060 /* movieCell.swift */; };
 		022F537A1E2B5140004CB060 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F53791E2B5140004CB060 /* Movie.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		020D890C1E2C02AB003BE2DC /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		022F53751E2B3F4A004CB060 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		022F53771E2B4054004CB060 /* movieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = movieCell.swift; sourceTree = "<group>"; };
 		022F53791E2B5140004CB060 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				022F53751E2B3F4A004CB060 /* MoviesViewController.swift */,
 				022F53771E2B4054004CB060 /* movieCell.swift */,
 				022F53791E2B5140004CB060 /* Movie.swift */,
+				020D890C1E2C02AB003BE2DC /* NetworkRequest.swift */,
 			);
 			name = MovieTime;
 			path = MovieTIme;
@@ -462,6 +465,7 @@
 				023C8E0B1E2B265C007544E5 /* MovieTime.xcdatamodeld in Sources */,
 				022F53781E2B4054004CB060 /* movieCell.swift in Sources */,
 				022F53761E2B3F4A004CB060 /* MoviesViewController.swift in Sources */,
+				020D890D1E2C02AB003BE2DC /* NetworkRequest.swift in Sources */,
 				022F537A1E2B5140004CB060 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
