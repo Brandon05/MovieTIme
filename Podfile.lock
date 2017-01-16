@@ -7,20 +7,26 @@ PODS:
   - LionheartExtensions (2.0.6):
     - LionheartExtensions/Core (= 2.0.6)
   - LionheartExtensions/Core (2.0.6)
-  - UICircularProgressRing (1.1.4)
 
 DEPENDENCIES:
   - AlamofireImage (~> 3.1)
-  - ConcentricProgressRingView
-  - UICircularProgressRing
+  - ConcentricProgressRingView (from `https://github.com/brandon05/ConcentricProgressRingView.git`)
+
+EXTERNAL SOURCES:
+  ConcentricProgressRingView:
+    :git: https://github.com/brandon05/ConcentricProgressRingView.git
+
+CHECKOUT OPTIONS:
+  ConcentricProgressRingView:
+    :commit: 9b8a1313600fc8baff6ea6c554300c5206fd5225
+    :git: https://github.com/brandon05/ConcentricProgressRingView.git
 
 SPEC CHECKSUMS:
   Alamofire: e266cf991b933498df791e645e0d8ac294492153
   AlamofireImage: bb8c8351c51cb1633bb6be69b6dbbaff37ce65b7
-  ConcentricProgressRingView: d342fef62dddcde119c07ce945f79094e6e58455
+  ConcentricProgressRingView: e84f17780ae1aef286cf91aa9a9e83c3dff90ea1
   LionheartExtensions: f9458a8c0a7a1603a45e0cd0522f06423ca3b145
-  UICircularProgressRing: 3e49e99c80c0a5c5164e5ad840b232bfe912f260
 
-PODFILE CHECKSUM: da8cec56eae62e77b92f2d35e3fe94819ec159dc
+PODFILE CHECKSUM: 5d1522c4470248975896d206c5aeed02349b8c67
 
 COCOAPODS: 1.1.1

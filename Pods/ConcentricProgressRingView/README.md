@@ -1,6 +1,5 @@
 # ConcentricProgressRingView
 
-[![CI Status](http://img.shields.io/travis/lionheart/ConcentricProgressRingView.svg?style=flat)](https://travis-ci.org/Dan Loewenherz/ConcentricProgressRingView)
 [![Version](https://img.shields.io/cocoapods/v/ConcentricProgressRingView.svg?style=flat)](http://cocoapods.org/pods/ConcentricProgressRingView)
 [![License](https://img.shields.io/cocoapods/l/ConcentricProgressRingView.svg?style=flat)](http://cocoapods.org/pods/ConcentricProgressRingView)
 [![Platform](https://img.shields.io/cocoapods/p/ConcentricProgressRingView.svg?style=flat)](http://cocoapods.org/pods/ConcentricProgressRingView)
@@ -11,7 +10,7 @@ Fully customizable, circular progress bar written in Swift.
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first. You can also view the example app without downloading the sample project with [Appetize.io](https://appetize.io/app/xw49k81xufbqkmwdhpebkpyn58?device=iphone5s&scale=75&orientation=portrait&osVersion=9.3&deviceColor=black).
+To run the example project, clone the repo, and run `pod install` from the Example directory first. You can also view the example app at [Appetize.io](https://appetize.io/app/xw49k81xufbqkmwdhpebkpyn58?device=iphone5s&scale=75&orientation=portrait&osVersion=9.3&deviceColor=black).
 
 ### Usage
 
@@ -27,14 +26,14 @@ Then, instantiate ConcentricProgressRingView in your view controller:
 func viewDidLoad() {
     super.viewDidLoad()
 
-    let foregroundColor1 = UIColor.yellowColor()
-    let backgroundColor1 = UIColor.darkGrayColor()
-    let foregroundColor2 = UIColor.greenColor()
-    let backgroundColor2 = UIColor.darkGrayColor()
+    let fgColor1 = UIColor.yellowColor()
+    let bgColor1 = UIColor.darkGrayColor()
+    let fgColor2 = UIColor.greenColor()
+    let bgColor2 = UIColor.darkGrayColor()
 
     let rings = [
-        ProgressRing(color: foregroundColor1, backgroundColor: backgroundColor1, width: 18),
-        ProgressRing(color: foregroundColor2, backgroundColor: backgroundColor2, width: 18),
+        ProgressRing(color: fgColor1, backgroundColor: bgColor1, width: 18),
+        ProgressRing(color: fgColor2, backgroundColor: bgColor2, width: 18),
     ]
 
     let margin: CGFloat = 2
@@ -51,12 +50,12 @@ You can customize the width, margin, and radius, along with the number of rings.
 
 ```swift
 let rings = [
-    ProgressRing(color: foregroundColor1, backgroundColor: backgroundColor1, width: 10),
-    ProgressRing(color: foregroundColor2, backgroundColor: backgroundColor2, width: 10),
-    ProgressRing(color: foregroundColor1, backgroundColor: backgroundColor1, width: 10),
-    ProgressRing(color: foregroundColor2, backgroundColor: backgroundColor2, width: 10),
-    ProgressRing(color: foregroundColor1, backgroundColor: backgroundColor1, width: 10),
-    ProgressRing(color: foregroundColor2, backgroundColor: backgroundColor2, width: 10),
+    ProgressRing(color: fgColor1, backgroundColor: bgColor1, width: 10),
+    ProgressRing(color: fgColor2, backgroundColor: bgColor2, width: 10),
+    ProgressRing(color: fgColor1, backgroundColor: bgColor1, width: 10),
+    ProgressRing(color: fgColor2, backgroundColor: bgColor2, width: 10),
+    ProgressRing(color: fgColor1, backgroundColor: bgColor1, width: 10),
+    ProgressRing(color: fgColor2, backgroundColor: bgColor2, width: 10),
 ]
 
 let margin: CGFloat = 10
@@ -70,12 +69,12 @@ Repeating widths can get a bit tedious, so you can omit them---but you'll still 
 
 ```swift
 let rings = [
-    ProgressRing(color: foregroundColor1, backgroundColor: backgroundColor1),
-    ProgressRing(color: foregroundColor2, backgroundColor: backgroundColor2),
-    ProgressRing(color: foregroundColor1, backgroundColor: backgroundColor1),
-    ProgressRing(color: foregroundColor2, backgroundColor: backgroundColor2),
-    ProgressRing(color: foregroundColor1, backgroundColor: backgroundColor1),
-    ProgressRing(color: foregroundColor2, backgroundColor: backgroundColor2),
+    ProgressRing(color: fgColor1, backgroundColor: bgColor1),
+    ProgressRing(color: fgColor2, backgroundColor: bgColor2),
+    ProgressRing(color: fgColor1, backgroundColor: bgColor1),
+    ProgressRing(color: fgColor2, backgroundColor: bgColor2),
+    ProgressRing(color: fgColor1, backgroundColor: bgColor1),
+    ProgressRing(color: fgColor2, backgroundColor: bgColor2),
 ]
 
 let margin: CGFloat = 10
