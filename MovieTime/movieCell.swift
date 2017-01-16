@@ -7,9 +7,22 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class movieCell: UITableViewCell {
 
+    @IBOutlet var moviePosterImageView: UIImageView!
+    
+    @IBOutlet var titleLabel: UILabel!
+    
+    @IBOutlet var descriptionLabel: UILabel!
+    
+    @IBOutlet var voteAverageLabel: UILabel!
+    
+    @IBOutlet var voteCountLabel: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +32,16 @@ class movieCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    var movie: Movie! {
+        didSet {
+            moviePosterImageView.af_setImage(withURL: URL(string: movie.imagePath)!)
+            titleLabel.text = movie.title
+            descriptionLabel.text = movie.overview
+            voteAverageLabel.text = String(movie.voteAverage)
+            voteCountLabel.text = String(movie.voteCount)
+        }
     }
 
 }

@@ -1,3 +1,26 @@
-PODFILE CHECKSUM: b4ebf7dd9301ef02d4e92fa29a09974d5af73be2
+PODS:
+  - Alamofire (4.1.0)
+  - AlamofireImage (3.1.0):
+    - Alamofire (~> 4.0)
+  - ConcentricProgressRingView (1.3.3):
+    - LionheartExtensions
+  - LionheartExtensions (2.0.6):
+    - LionheartExtensions/Core (= 2.0.6)
+  - LionheartExtensions/Core (2.0.6)
+  - UICircularProgressRing (1.1.4)
+
+DEPENDENCIES:
+  - AlamofireImage (~> 3.1)
+  - ConcentricProgressRingView
+  - UICircularProgressRing
+
+SPEC CHECKSUMS:
+  Alamofire: e266cf991b933498df791e645e0d8ac294492153
+  AlamofireImage: bb8c8351c51cb1633bb6be69b6dbbaff37ce65b7
+  ConcentricProgressRingView: d342fef62dddcde119c07ce945f79094e6e58455
+  LionheartExtensions: f9458a8c0a7a1603a45e0cd0522f06423ca3b145
+  UICircularProgressRing: 3e49e99c80c0a5c5164e5ad840b232bfe912f260
+
+PODFILE CHECKSUM: da8cec56eae62e77b92f2d35e3fe94819ec159dc
 
 COCOAPODS: 1.1.1
