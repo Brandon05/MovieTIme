@@ -36,7 +36,7 @@ class movieCell: UITableViewCell {
     
     var movie: Movie! {
         didSet {
-            moviePosterImageView.af_setImage(withURL: URL(string: movie.imagePath)!)
+            moviePosterImageView.af_setImage(withURL: URL(string: movie.posterPath)!)
             titleLabel.text = movie.title
             descriptionLabel.text = movie.overview
             voteAverageLabel.text = String(movie.voteAverage)

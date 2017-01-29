@@ -8,6 +8,7 @@ target 'MovieTime' do
   # Pods for MovieTime
   pod 'AlamofireImage', '~> 3.1'
   pod 'ConcentricProgressRingView', :git => 'https://github.com/brandon05/ConcentricProgressRingView.git'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   
   target 'MovieTimeTests' do
     inherit! :search_paths

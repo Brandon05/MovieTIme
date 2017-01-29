@@ -15,10 +15,12 @@ enum Result<T> {
 
 struct MovieService: Gettable {
     
+    var endpoint: String
+    
     func get(completionHandler: @escaping (Result<[Movie]>) -> Void) {
         
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")!
+        let url = URL(string: "https://api.themoviedb.org/3/movie/\(endpoint)?api_key=\(apiKey)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -28,7 +30,7 @@ struct MovieService: Gettable {
             guard let data = data,
                 let dataDictionary = try!JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary,
                 let results = dataDictionary["results"] as? [NSDictionary]
-                else { fatalError() }
+                else { fatalError(error as! String) }
             
             for case let result in results {
                 if let movie = Movie(dictionary: result) {
