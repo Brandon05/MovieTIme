@@ -23,15 +23,9 @@ class DetailViewController: UIViewController {
     
     var movie: Movie! {
         didSet {
-            
-            if movie.title != nil {
-                
-            }
-            
+            youtube(movieID: String(movie.id))
         }
     }
-    
-    //var name: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +36,8 @@ class DetailViewController: UIViewController {
         self.scrollView.backgroundColor = colorSheet().alabaster
         self.baseView.translatesAutoresizingMaskIntoConstraints = false
         
-        youtube()
-        
-        self.navigationController?.navigationBar.tintColor = colorSheet().oysterBay
-        self.tabBarController?.tabBar.tintColor = colorSheet().oysterBay
+        //self.navigationController?.navigationBar.tintColor = colorSheet().oysterBay
+        //self.tabBarController?.tabBar.tintColor = colorSheet().oysterBay
         //self.baseView.backgroundColor = UIColor.flatRed //UIColor(gradientStyle: .topToBottom, withFrame: self.baseView.frame, andColors: [colorSheet().alabaster!, colorSheet().shadyLady!])
         
         var shadyLady = UIColor(hexString: "#9D9D9E")
@@ -103,13 +95,32 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func youtube() {
-        let movieID = "LKFuXETZUsI"
-        let youtubeBaseUrl = "https://www.youtube.com/embed/\(movieID)"
+    func youtube(movieID: String) {
         
-        youtubeWebView.allowsInlineMediaPlayback = true
-        youtubeWebView.loadRequest(URLRequest(url: URL(string: youtubeBaseUrl)!))
+        //let id = movieID!
+        let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
+        let url = URL(string: "https://api.themoviedb.org/3/movie/\(movieID)/videos?api_key=\(apiKey)&language=en-US")!
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            var movies: [Movie] = []
+            
+            guard let data = data,
+                let dataDictionary = try!JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary,
+                let results = dataDictionary["results"] as? [NSDictionary],
+                let movieKey = results[0]["key"] as? String
+                else { fatalError(error as! String) }
+        
+        
+        let youtubeBaseUrl = "https://www.youtube.com/embed/\(movieKey)"
+        
+        self.youtubeWebView.allowsInlineMediaPlayback = true
+        self.youtubeWebView.loadRequest(URLRequest(url: URL(string: youtubeBaseUrl)!))
         //youtubeWebView.loadHTMLString("<iframe width=\"\(youtubeWebView.frame.width)\" height=\"\(youtubeWebView.frame.height)\" src=\"\(youtubeBaseUrl)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
+        }
+        
+        task.resume()
     }
     
     func setLabelColors(color: UIColor) {

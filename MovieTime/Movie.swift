@@ -15,6 +15,7 @@ struct Movie {
     let backdropPath: String
     let voteAverage: Double
     let voteCount: Int
+    let id: Int
     
 }
 
@@ -25,7 +26,8 @@ extension Movie {
             let posterPath = dictionary["poster_path"] as? String,
             let backdropPath = dictionary["backdrop_path"] as? String,
             let voteAverage = dictionary["vote_average"] as? Double,
-            let voteCount = dictionary["vote_count"] as? Int
+            let voteCount = dictionary["vote_count"] as? Int,
+            let movieID = dictionary["id"] as? Int
             else {
                 return nil
         }
@@ -39,5 +41,6 @@ extension Movie {
         self.backdropPath = backdropURL + backdropPath
         self.voteAverage = voteAverage
         self.voteCount = voteCount
+        self.id = movieID
     }
 }
