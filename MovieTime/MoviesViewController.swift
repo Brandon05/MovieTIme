@@ -9,7 +9,7 @@
 import UIKit
 import ConcentricProgressRingView
 
-class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UISearchResultsUpdating {
+class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UISearchResultsUpdating, UISearchBarDelegate {
 
 
     @IBOutlet var moviesTableView: UITableView!
@@ -60,6 +60,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         moviesTableView.insertSubview(refreshControl, at: 0)
         moviesTableView.backgroundColor = UIColor.white
         initiateSearchController()
+        searchController.searchBar.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -120,6 +121,12 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print(filteredData)
             moviesTableView.reloadData()
         }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        guard movies != nil else {fatalError("onCancel: movies is nil")}
+        filteredData = movies
+        moviesTableView.reloadData()
     }
     
     func concentricProgressRing() {
@@ -275,7 +282,13 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         guard let movie = movies[(indexPath?.row)!] as? Movie else {print("error passing data")}
         
         let detailViewController = segue.destination as! DetailViewController
-        detailViewController.movie = movie
+        
+        if filteredData != nil {
+            detailViewController.movie = filteredData[(indexPath?.row)!]
+        } else {
+            detailViewController.movie = movies[(indexPath?.row)!]
+        }
+
         
         
         
