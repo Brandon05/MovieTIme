@@ -9,10 +9,18 @@
 import UIKit
 import ConcentricProgressRingView
 
-class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResultsUpdating, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
 
-    @IBOutlet var moviesTableView: UITableView!
+    @IBOutlet var collectionView: UICollectionView!
+    var isGridFlowLayoutUsed = true
+    
+    // MARK:- Variables
+    var gridFlowLayout = GridFlowLayout()
+    var listFlowLayout = ListFlowLayout()
+    
+    let cell1Nib = UINib(nibName: "GridCell", bundle: nil)
+    let cell2Nib = UINib(nibName: "ListCell", bundle: nil)
     
     var progressRingView: ConcentricProgressRingView?
     var refreshRingView: ConcentricProgressRingView?
@@ -22,7 +30,8 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var searchController: UISearchController!
     
-    var endpoint: String!
+    //var endpoint: String!
+    var endpoint = "now_playing"
     
     var movies = [Movie]() {
         
@@ -31,7 +40,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             refreshRingView?.arcs[1].setProgress(progress: 1, duration: 0.5)
             let when = DispatchTime.now() + 0.35
             DispatchQueue.main.asyncAfter(deadline: when) {
-            self.moviesTableView.reloadData()
+            self.collectionView.reloadData()
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
                 self.refreshRingView?.arcs[1].strokeColor = UIColor.clear.cgColor
@@ -45,9 +54,9 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        moviesTableView.dataSource = self
-        moviesTableView.delegate = self
-        self.automaticallyAdjustsScrollViewInsets = false
+//        moviesTableView.dataSource = self
+//        moviesTableView.delegate = self
+//        self.automaticallyAdjustsScrollViewInsets = false
         
         
         
@@ -57,18 +66,31 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         refreshControl.addTarget(self, action: #selector(MoviesViewController.refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
         
         // add refresh control to table view
-        moviesTableView.insertSubview(refreshControl, at: 0)
-        moviesTableView.backgroundColor = UIColor.white
+        collectionView.insertSubview(refreshControl, at: 0)
+        collectionView.backgroundColor = UIColor.white
         initiateSearchController()
         searchController.searchBar.delegate = self
         // Do any additional setup after loading the view.
+        
+        ////////////////////////
+        // MARK:- New Code/////
+        ///////////////////////
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        self.automaticallyAdjustsScrollViewInsets = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Must register nib to use them
+        self.collectionView.register(cell1Nib, forCellWithReuseIdentifier: "gridCell")
+        self.collectionView.register(cell2Nib, forCellWithReuseIdentifier: "listCell")
+        
+        setupInitialLayout() // collection view initializes blank, loadGridView causes autolayout loop onSwitch
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         getMovies(fromService: MovieService(endpoint: endpoint))
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,6 +102,119 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillDisappear(_ animated: Bool) {
         //refreshLoadingView.removeFromSuperview()
     }
+    
+    ////////////////////////
+    // MARK:- New Code/////
+    ///////////////////////
+    func setupInitialLayout() {
+        isGridFlowLayoutUsed = true
+        collectionView.collectionViewLayout = gridFlowLayout
+        if let flowLayout = self.collectionView.collectionViewLayout as? GridFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: (self.collectionView!.frame.width/2)-20, height: 1)//use auto layout for the collection view
+        }
+    }
+    
+    // MARK: - Switch button between grid and list
+    
+    @IBAction func onSwitch(_ sender: Any) {
+        
+        self.collectionView.scrollToTop(animated: false, completion: {
+            
+            if(self.isGridFlowLayoutUsed){
+                self.isGridFlowLayoutUsed = false
+                UIApplication.shared.beginIgnoringInteractionEvents()
+                self.fadeOutGrid()
+            } else {
+                self.isGridFlowLayoutUsed = true
+                UIApplication.shared.beginIgnoringInteractionEvents()
+                self.fadeOutList()
+            }
+        })
+        
+        
+    }
+    
+    // MARK:- CollectionViewFlowLayout Animations
+    
+    func fadeOutList() {
+        let animationDuration = 0.5
+        
+        // Fade in the view
+        UIView.animate(withDuration: animationDuration, animations: { () -> Void in
+            self.collectionView.alpha = 0
+            //            self.collectionView.scrollToTop(animated: false, completion: {
+            //            })
+            //self.collectionView.scrollToTop(animated: true)
+        }) { (Bool) -> Void in
+            
+            // After the animation completes, fade out the view after a delay
+            self.collectionView.reloadData() {
+                self.loadGridView() // must be called after new cells are loaded
+            }
+        }
+    }
+    
+    func fadeOutGrid() {
+        let animationDuration = 0.5
+        
+        // Fade in the view
+        UIView.animate(withDuration: animationDuration, animations: { () -> Void in
+            self.collectionView.alpha = 0
+            //            self.collectionView.scrollToTop(animated: false, completion: {
+            //            })
+        }) { (Bool) -> Void in
+            self.collectionView.collectionViewLayout.invalidateLayout() //neccesary to avoid autolayout loop
+            // After the animation completes, fade out the view after a delay
+            self.collectionView.reloadData() {
+                self.loadListView() // must be called after new cells are loaded
+            }
+        }
+        
+    }
+    
+    // MARK: - UICollectionViewFlowLayout helpers
+    func loadGridView() {
+        
+        UIView.animate(withDuration: 0, animations: { () -> Void in
+            self.collectionView.setCollectionViewLayout(self.gridFlowLayout, animated: true)
+            if let flowLayout = self.collectionView.collectionViewLayout as? GridFlowLayout {
+                // Need to set estimatedSize to use autolayout
+                flowLayout.estimatedItemSize = CGSize(width: (self.collectionView!.frame.width/2)-20, height: 100)
+                self.collectionView.layoutIfNeeded()
+            }
+        }) { (Bool) -> Void in
+            UIView.animate(withDuration: 1, animations: { () -> Void in
+                
+                self.collectionView.alpha = 1
+                UIApplication.shared.endIgnoringInteractionEvents()
+            },
+                           completion: nil)
+        }
+        
+    }
+    
+    func loadListView() {
+        
+        UIView.animate(withDuration: 0, animations: { () -> Void in
+            self.collectionView.setCollectionViewLayout(self.listFlowLayout, animated: true)
+            if let flowLayout = self.collectionView.collectionViewLayout as? ListFlowLayout {
+                // Need to set estimatedSize to use autolayout
+                flowLayout.estimatedItemSize = CGSize(width: self.collectionView!.frame.width - 10, height: 1)
+                self.collectionView.layoutIfNeeded()
+            }
+        }) { (Bool) -> Void in
+            UIView.animate(withDuration: 1, animations: { () -> Void in
+                
+                self.collectionView.alpha = 1
+                UIApplication.shared.endIgnoringInteractionEvents()
+            },
+                           completion: nil)
+        }
+    }
+
+    ///////////////////
+    //OLD CODE////////
+    /////////////////
     
     func initiateSearchController() {
         
@@ -95,8 +230,8 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchController.hidesNavigationBarDuringPresentation = false
         
         searchController.searchBar.sizeToFit()
-        moviesTableView.tableHeaderView = searchController.searchBar
-        
+        //collectionView.tableHeaderView = searchController.searchBar
+    
         // Sets this view controller as presenting view controller for the search interface
         definesPresentationContext = true
     }
@@ -119,14 +254,14 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 return $0.title.range(of: searchController.searchBar.text!, options: options) != nil
             }
             print(filteredData)
-            moviesTableView.reloadData()
+            collectionView.reloadData()
         }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         guard movies != nil else {fatalError("onCancel: movies is nil")}
         filteredData = movies
-        moviesTableView.reloadData()
+        collectionView.reloadData()
     }
     
     func concentricProgressRing() {
@@ -242,32 +377,32 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        guard filteredData != nil else {return movies.count}
-        
-        return filteredData.count
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? movieCell
-        else {
-            fatalError("Could not dequeue cell with identifier: movieCell")
-        }
-        
-        if filteredData != nil {
-            cell.movie = filteredData[indexPath.row]
-        } else {
-            cell.movie = movies[indexPath.row]
-        }
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
+//    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        
+//        guard filteredData != nil else {return movies.count}
+//        
+//        return filteredData.count
+//    }
+//    
+//    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? movieCell
+//        else {
+//            fatalError("Could not dequeue cell with identifier: movieCell")
+//        }
+//        
+//        if filteredData != nil {
+//            cell.movie = filteredData[indexPath.row]
+//        } else {
+//            cell.movie = movies[indexPath.row]
+//        }
+//        
+//        return cell
+//    }
+//    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//    }
     
     
 
@@ -276,18 +411,18 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! UITableViewCell
-        let indexPath = moviesTableView.indexPathForSelectedRow
+        //let cell = sender as! UITableViewCell
+        //let indexPath = moviesTableView.indexPathForSelectedRow
         
-        guard let movie = movies[(indexPath?.row)!] as? Movie else {print("error passing data")}
-        
-        let detailViewController = segue.destination as! DetailViewController
-        
-        if filteredData != nil {
-            detailViewController.movie = filteredData[(indexPath?.row)!]
-        } else {
-            detailViewController.movie = movies[(indexPath?.row)!]
-        }
+//        guard let movie = movies[(indexPath?.row)!] as? Movie else {print("error passing data")}
+//        
+//        let detailViewController = segue.destination as! DetailViewController
+//        
+//        if filteredData != nil {
+//            detailViewController.movie = filteredData[(indexPath?.row)!]
+//        } else {
+//            detailViewController.movie = movies[(indexPath?.row)!]
+//        }
 
         
         
@@ -332,6 +467,118 @@ private extension MoviesViewController {
             ring.setProgress(progress: 1, duration: 0.3)
         }
         
+    }
+}
+
+// MARK: - UICollectionView Methods
+
+extension MoviesViewController {
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard filteredData != nil else {return movies.count}
+        
+        return filteredData.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cell: UICollectionViewCell
+        var identifier: String
+        
+        
+        /*
+         Determine the nib file to load
+         - Returns: The cell loaded from its nib file.
+         */
+        if isGridFlowLayoutUsed == false {
+            
+            identifier = "listCell"
+            
+            let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ListCell
+            
+            // Set width constraint
+            let cellWidth = collectionView.frame.width - 10
+            listCell.cellWidth.constant = collectionView.frame.width - 10
+            
+            cell = listCell
+            
+            if filteredData != nil {
+                listCell.movie = filteredData[indexPath.row]
+            } else {
+                listCell.movie = movies[indexPath.row]
+            }
+            
+        } else {
+            
+            identifier = "gridCell"
+            let gridCell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! GridCell
+            
+            // Set width constraint
+            let cellWidth = (collectionView.frame.width/2) - 20
+            gridCell.cellWidth.constant = cellWidth
+            
+            cell = gridCell
+            
+            if filteredData != nil {
+                gridCell.movie = filteredData[indexPath.row]
+            } else {
+                gridCell.movie = movies[indexPath.row]
+            }
+        }
+        //        collectionView.setNeedsLayout()
+        //        collectionView.layoutIfNeeded()
+        
+//        if filteredData != nil {
+//            cell.movie = filteredData[indexPath.row]
+//        } else {
+//            cell.movie = movies[indexPath.row]
+//        }
+        //cell.translatesAutoresizingMaskIntoConstraints = false
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewFlowLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if let cell = GridCell.fromNib() {
+            cell.configureWithIndexPath(indexPath)
+            cell.translatesAutoresizingMaskIntoConstraints = false
+            
+            return cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        }
+        
+        if let cell = ListCell.fromNib() {
+            cell.configureWithIndexPath(indexPath)
+            cell.translatesAutoresizingMaskIntoConstraints = false
+            
+            return cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        }
+        
+        return CGSize.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //performSegue(withIdentifier: "detail", sender: self)
+    }
+}
+
+/*
+ Completion handler for reloadData()
+ - collection view flow layout is set in completion
+ */
+
+extension UICollectionView {
+    func reloadData(completion: @escaping ()->()) {
+        UIView.animate(withDuration: 0, animations: { self.reloadData() })
+        { _ in completion() }
+    }
+    
+    
+}
+
+extension UIScrollView {
+    func scrollToTop(animated: Bool, completion: @escaping () -> Void) {
+        let topOffset = CGPoint(x: 0, y: -contentInset.top)
+        UIView.animate(withDuration: 0, animations: { self.setContentOffset(topOffset, animated: animated) })
+        { _ in completion() }
     }
 }
 
