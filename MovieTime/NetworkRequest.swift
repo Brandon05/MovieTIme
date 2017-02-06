@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MIAlertController
 
 enum Result<T> {
     case success(T)
@@ -30,7 +31,11 @@ struct MovieService: Gettable {
             guard let data = data,
                 let dataDictionary = try!JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary,
                 let results = dataDictionary["results"] as? [NSDictionary]
-                else { fatalError(error as! String) }
+                else {
+                //Alert().apiCall()
+                completionHandler(Result.failure(error!))
+                return
+            }
             
             for case let result in results {
                 if let movie = Movie(dictionary: result) {
@@ -69,4 +74,39 @@ protocol Gettable {
     func get(completionHandler: @escaping (Result<data>) -> Void)
 }
 
+struct Alert {
+    
+    func display() {
+        let myEmoji = "1f625"
+        let emoji = String(Character(UnicodeScalar(Int(myEmoji, radix: 16)!)!))
+        
+        var alert = MIAlertController(
+            
+            title: "Network Error",
+            message: "It seems we can't connect to our network \(emoji)",
+            buttons: [
+                MIAlertController.Button(title: "Retry", action: {
+                    //self.getMovies(fromService: MovieService(endpoint: self.endpoint))
+                    //self.resignFirstResponder()
+                    self.apiCall()
+                }),
+                MIAlertController.Button(title: "Cancel", action: {
+                    print("button two tapped")
+                })
+            ]
+            
+            ).presentOn(MoviesViewController())
+    }
+    
+    func apiCall() {
+        MovieService(endpoint: "now_playing").get() { result in
+            switch result {
+            case .success(let movies):
+                MoviesViewController().movies = movies
+            case .failure(let error): break
+                // Show Alert again
+            }
+        }
+    }
+}
 

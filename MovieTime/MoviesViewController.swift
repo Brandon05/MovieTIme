@@ -100,6 +100,9 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
                 loadGridView()
             }
     }
+    @IBAction func onAlert(_ sender: Any) {
+        showAlert()
+    }
     
 // MARK:- CollectionViewFlowLayout Animations
     
