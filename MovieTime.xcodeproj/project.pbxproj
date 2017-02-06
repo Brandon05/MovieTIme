@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		020D890D1E2C02AB003BE2DC /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D890C1E2C02AB003BE2DC /* NetworkRequest.swift */; };
+		022880E11E47ABD20076270D /* GridFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022880E01E47ABD20076270D /* GridFlowLayout.swift */; };
+		022880E51E47ACA90076270D /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022880E31E47ACA90076270D /* GridCell.swift */; };
+		022880E61E47ACA90076270D /* GridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022880E41E47ACA90076270D /* GridCell.xib */; };
+		022880E81E47AE810076270D /* ListFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022880E71E47AE810076270D /* ListFlowLayout.swift */; };
+		022880EB1E47AFDF0076270D /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022880E91E47AFDF0076270D /* ListCell.swift */; };
+		022880EC1E47AFDF0076270D /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022880EA1E47AFDF0076270D /* ListCell.xib */; };
+		022880EE1E47E4580076270D /* MaterialCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022880ED1E47E4580076270D /* MaterialCard.swift */; };
 		022F53761E2B3F4A004CB060 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F53751E2B3F4A004CB060 /* MoviesViewController.swift */; };
 		022F53781E2B4054004CB060 /* movieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F53771E2B4054004CB060 /* movieCell.swift */; };
 		022F537A1E2B5140004CB060 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F53791E2B5140004CB060 /* Movie.swift */; };
@@ -43,6 +50,13 @@
 
 /* Begin PBXFileReference section */
 		020D890C1E2C02AB003BE2DC /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		022880E01E47ABD20076270D /* GridFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridFlowLayout.swift; path = MovieTime/GridFlowLayout.swift; sourceTree = SOURCE_ROOT; };
+		022880E31E47ACA90076270D /* GridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCell.swift; sourceTree = "<group>"; };
+		022880E41E47ACA90076270D /* GridCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridCell.xib; sourceTree = "<group>"; };
+		022880E71E47AE810076270D /* ListFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFlowLayout.swift; sourceTree = "<group>"; };
+		022880E91E47AFDF0076270D /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		022880EA1E47AFDF0076270D /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
+		022880ED1E47E4580076270D /* MaterialCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialCard.swift; sourceTree = "<group>"; };
 		022F53751E2B3F4A004CB060 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "\bMoviesViewController.swift"; sourceTree = "<group>"; };
 		022F53771E2B4054004CB060 /* movieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = movieCell.swift; sourceTree = "<group>"; };
 		022F53791E2B5140004CB060 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -99,6 +113,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		022880DF1E47ABB80076270D /* CollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				022880E01E47ABD20076270D /* GridFlowLayout.swift */,
+				022880E71E47AE810076270D /* ListFlowLayout.swift */,
+			);
+			name = CollectionViewFlowLayout;
+			sourceTree = "<group>";
+		};
+		022880E21E47AC900076270D /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				022880E31E47ACA90076270D /* GridCell.swift */,
+				022880E41E47ACA90076270D /* GridCell.xib */,
+				022880E91E47AFDF0076270D /* ListCell.swift */,
+				022880EA1E47AFDF0076270D /* ListCell.xib */,
+				022880ED1E47E4580076270D /* MaterialCard.swift */,
+			);
+			name = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		023C8DF61E2B265B007544E5 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +159,8 @@
 		023C8E011E2B265C007544E5 /* MovieTime */ = {
 			isa = PBXGroup;
 			children = (
+				022880E21E47AC900076270D /* CollectionViewCells */,
+				022880DF1E47ABB80076270D /* CollectionViewFlowLayout */,
 				023C8E021E2B265C007544E5 /* AppDelegate.swift */,
 				023C8E0C1E2B265C007544E5 /* Assets.xcassets */,
 				0243F71C1E3305C4004ED56E /* Main.storyboard */,
@@ -260,6 +297,7 @@
 				TargetAttributes = {
 					023C8DFE1E2B265B007544E5 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = ELJV42N84Z;
 						ProvisioningStyle = Automatic;
 					};
 					023C8E151E2B265C007544E5 = {
@@ -302,6 +340,8 @@
 				0243F71D1E3305C4004ED56E /* Main.storyboard in Resources */,
 				023C8E101E2B265C007544E5 /* LaunchScreen.storyboard in Resources */,
 				023C8E0D1E2B265C007544E5 /* Assets.xcassets in Resources */,
+				022880E61E47ACA90076270D /* GridCell.xib in Resources */,
+				022880EC1E47AFDF0076270D /* ListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +507,12 @@
 				023C8E031E2B265C007544E5 /* AppDelegate.swift in Sources */,
 				023C8E0B1E2B265C007544E5 /* MovieTime.xcdatamodeld in Sources */,
 				022F53781E2B4054004CB060 /* movieCell.swift in Sources */,
+				022880E81E47AE810076270D /* ListFlowLayout.swift in Sources */,
+				022880E11E47ABD20076270D /* GridFlowLayout.swift in Sources */,
 				022F53761E2B3F4A004CB060 /* MoviesViewController.swift in Sources */,
+				022880EE1E47E4580076270D /* MaterialCard.swift in Sources */,
+				022880EB1E47AFDF0076270D /* ListCell.swift in Sources */,
+				022880E51E47ACA90076270D /* GridCell.swift in Sources */,
 				020D890D1E2C02AB003BE2DC /* NetworkRequest.swift in Sources */,
 				022F537A1E2B5140004CB060 /* Movie.swift in Sources */,
 				0243F71F1E330BCF004ED56E /* DetailViewController.swift in Sources */,
@@ -557,7 +602,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -600,7 +645,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -613,6 +658,7 @@
 			baseConfigurationReference = 962E6CC93696A1B47B7DE8C0 /* Pods-MovieTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ELJV42N84Z;
 				INFOPLIST_FILE = MovieTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Brandon.MovieTIme;
@@ -626,6 +672,7 @@
 			baseConfigurationReference = 706F96F84FC10FA274857697 /* Pods-MovieTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ELJV42N84Z;
 				INFOPLIST_FILE = MovieTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Brandon.MovieTIme;

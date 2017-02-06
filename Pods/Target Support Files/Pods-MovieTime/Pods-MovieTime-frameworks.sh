@@ -89,6 +89,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ChameleonFramework/ChameleonFramework.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ConcentricProgressRingView/ConcentricProgressRingView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/LionheartExtensions/LionheartExtensions.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MIAlertController/MIAlertController.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
@@ -96,4 +97,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/ChameleonFramework/ChameleonFramework.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ConcentricProgressRingView/ConcentricProgressRingView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/LionheartExtensions/LionheartExtensions.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MIAlertController/MIAlertController.framework"
 fi
