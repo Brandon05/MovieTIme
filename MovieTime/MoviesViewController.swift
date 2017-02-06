@@ -8,11 +8,14 @@
 
 import UIKit
 import ConcentricProgressRingView
+import MIAlertController
+
 
 class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResultsUpdating, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet var moviesTableView: UITableView!
     @IBOutlet var moviesCollectionView: UICollectionView!
+    @IBOutlet var searchView: UIView!
     
     var isGridFlowLayoutUsed = true
     
@@ -87,12 +90,12 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
         
             if(self.isGridFlowLayoutUsed){
                 self.isGridFlowLayoutUsed = false
-                //UIApplication.shared.beginIgnoringInteractionEvents()
+                UIApplication.shared.beginIgnoringInteractionEvents()
                 self.loadListView()
                 //fadeOutGrid()
             } else {
                 self.isGridFlowLayoutUsed = true
-                //UIApplication.shared.beginIgnoringInteractionEvents()
+                UIApplication.shared.beginIgnoringInteractionEvents()
                 //self.fadeOutList()
                 loadGridView()
             }
@@ -150,7 +153,7 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
                 self.moviesCollectionView.collectionViewLayout.invalidateLayout()
                 self.moviesCollectionView.setCollectionViewLayout(self.listFlowLayout, animated: true)
             }, completion: { (Bool) in
-                
+                UIApplication.shared.endIgnoringInteractionEvents()
             })
             
         }
@@ -164,7 +167,7 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
                 self.moviesCollectionView.collectionViewLayout.invalidateLayout()
                 self.moviesCollectionView.setCollectionViewLayout(self.gridFlowLayout, animated: true)
             }, completion: { (Bool) in
-                
+                UIApplication.shared.endIgnoringInteractionEvents()
             })
 
         }
@@ -202,7 +205,7 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
         searchController.hidesNavigationBarDuringPresentation = false
         
         searchController.searchBar.sizeToFit()
-        //moviesCollectionView.tableHeaderView = searchController.searchBar
+        searchView.addSubview(searchController.searchBar)
         
         // Sets this view controller as presenting view controller for the search interface
         definesPresentationContext = true
@@ -273,12 +276,10 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
         
         
         guard refreshRingViewSet == false else {print("no"); return}
-        refreshRingView = ConcentricProgressRingView(center: refreshLoadingView.center, radius: radius, margin: margin, rings: rings)
-        print(refreshLoadingView.isDescendant(of: refreshControl))
+        refreshRingView = ConcentricProgressRingView(center: refreshControl.center, radius: radius, margin: margin, rings: rings)
         refreshLoadingView.backgroundColor = UIColor.clear
         refreshLoadingView.addSubview(refreshRingView!)
-        refreshControl.addSubview(refreshLoadingView)
-        print(refreshLoadingView.isDescendant(of: refreshControl))
+        refreshControl.addSubview(refreshRingView!)
         refreshLoadingView.clipsToBounds = true
         refreshControl.tintColor = UIColor.clear
         refreshControl.backgroundColor = UIColor.white
@@ -349,35 +350,27 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
         // Dispose of any resources that can be recreated.
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func showAlert() {
         
-        guard filteredData != nil else {return movies.count}
+        let myEmoji = "1f625"
+        let emoji = String(Character(UnicodeScalar(Int(myEmoji, radix: 16)!)!))
         
-        return filteredData.count
+        var alert = MIAlertController(
+            
+            title: "Network Error",
+            message: "It seems we can't connect to our network \(emoji)",
+            buttons: [
+                MIAlertController.Button(title: "Retry", action: {
+                    self.getMovies(fromService: MovieService(endpoint: self.endpoint))
+                    //self.resignFirstResponder()
+                }),
+                MIAlertController.Button(title: "Cancel", action: {
+                    print("button two tapped")
+                })
+            ]
+            
+            ).presentOn(self)
     }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? movieCell
-        else {
-            fatalError("Could not dequeue cell with identifier: movieCell")
-        }
-        
-        if filteredData != nil {
-            cell.movie = filteredData[indexPath.row]
-        } else {
-            cell.movie = movies[indexPath.row]
-        }
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    
-
     
     // MARK: - Navigation
 
@@ -439,6 +432,7 @@ private extension MoviesViewController {
                 }
             case .failure(let error):
                 print(error)
+                self?.showAlert()
             }
         }
     }
@@ -511,12 +505,9 @@ extension MoviesViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let cell = moviesCollectionView.cellForItem(at: indexPath)
-//        cell?.tag = indexPath.row
-//        DispatchQueue.main.async {
-//            self.performSegue(withIdentifier: "DetailSegue", sender: cell)
-//        }
-        
+        let cell = moviesCollectionView.cellForItem(at: indexPath)
+        cell?.tag = indexPath.row
+        self.performSegue(withIdentifier: "DetailSegue", sender: cell)
     }
 }
 

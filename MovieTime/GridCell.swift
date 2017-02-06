@@ -20,6 +20,8 @@ class GridCell: UICollectionViewCell {
     
     @IBOutlet var releaseDate: UILabel!
     
+    @IBOutlet var segueImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -37,6 +39,8 @@ class GridCell: UICollectionViewCell {
             //descriptionLabel.text = movie.overview
             voteAverageLabel.text = String(movie.voteAverage)
             voteCountLabel.text = String(movie.voteCount)
+            segueImageView.image = #imageLiteral(resourceName: "segueIconSmall")
+            
         }
     }
     
