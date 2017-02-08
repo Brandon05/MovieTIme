@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fsF-yo-uv0" id="9cQ-W5-pRr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAL-Dc-8ao">
@@ -147,11 +147,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wvp-1P-iKc">
-                        <barButtonItem key="leftBarButtonItem" title="Test Alert" id="2hz-7R-rW6">
-                            <connections>
-                                <action selector="onAlert:" destination="dtH-3s-uu4" id="0Qh-Qf-hMV"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Switch" id="oqa-Iu-1Ns">
                             <connections>
                                 <action selector="onSwitch:" destination="dtH-3s-uu4" id="SH4-PR-qRQ"/>

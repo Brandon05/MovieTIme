@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ListCell: UICollectionViewCell {
 
@@ -39,6 +40,17 @@ class ListCell: UICollectionViewCell {
             voteCountLabel.text = String(movie.voteCount)
             segueImageView.image = #imageLiteral(resourceName: "segueIconLarge")
         }
+    }
+    
+    func bind(_ movie: Movie) -> Self {
+        moviePosterImageView.af_setImage(withURL: URL(string: movie.posterPath)!)
+        //titleLabel.text = movie.title
+        //descriptionLabel.text = movie.overview
+        voteAverageLabel.text = String(movie.voteAverage)
+        voteCountLabel.text = String(movie.voteCount)
+        segueImageView.image = #imageLiteral(resourceName: "segueIconLarge")
+        
+        return self
     }
     
     func configureCell() {
