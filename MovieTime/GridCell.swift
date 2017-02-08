@@ -44,6 +44,17 @@ class GridCell: UICollectionViewCell {
         }
     }
     
+    func bind(_ movie: Movie) -> Self {
+        moviePosterImageView.af_setImage(withURL: URL(string: movie.posterPath)!)
+        //titleLabel.text = movie.title
+        //descriptionLabel.text = movie.overview
+        voteAverageLabel.text = String(movie.voteAverage)
+        voteCountLabel.text = String(movie.voteCount)
+        segueImageView.image = #imageLiteral(resourceName: "segueIconSmall")
+        
+        return self
+    }
+    
     func configureCell() {
         //baseView.layoutIfNeeded()
         baseView.backgroundColor = UIColor.cyan
