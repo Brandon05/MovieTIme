@@ -37,3 +37,32 @@ extension MoviesViewController {
         self.performSegue(withIdentifier: "DetailSegue", sender: cell)
     }
 }
+
+extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard recommendedMovies != nil else {print("No recommended Movies"); return 0}
+        
+        return recommendedMovies.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let gridCell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as GridCell
+        let movie = recommendedMovies[indexPath.row]
+        
+        return gridCell.bind(movie)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = recommendedCollectionView.cellForItem(at: indexPath) as! GridCell
+        let movie = recommendedMovies[indexPath.row]
+        //guard let movie = movies[(cell.tag)] as? Movie else {print("error passing data")}
+        guard cell != nil else {return}
+        print(movie)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        vc.movie = movie
+         //this is the data which will be passed to the new vc
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}

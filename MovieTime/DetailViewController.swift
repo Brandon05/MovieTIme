@@ -19,11 +19,23 @@ class DetailViewController: UIViewController {
     @IBOutlet var voteCountLabel: UILabel!
     @IBOutlet var voteAverageLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var youtubeWebView: UIWebView!
+    @IBOutlet var youtubeWebView: MaterialWebView!
+    @IBOutlet var recommendedCollectionView: UICollectionView!
+    var recommendedMovies = [Movie]()
     
     var movie: Movie! {
         didSet {
+            print(movie)
             youtube(movieID: String(movie.id))
+            getRecommendedMovies(movieID: String(movie.id)) { (result) in
+                switch result {
+                case .success(let movies):
+                    self.recommendedMovies = movies
+                    self.recommendedCollectionView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
         }
     }
     
@@ -36,56 +48,16 @@ class DetailViewController: UIViewController {
         self.scrollView.backgroundColor = colorSheet().alabaster
         self.baseView.translatesAutoresizingMaskIntoConstraints = false
         
-        //self.navigationController?.navigationBar.tintColor = colorSheet().oysterBay
-        //self.tabBarController?.tabBar.tintColor = colorSheet().oysterBay
-        //self.baseView.backgroundColor = UIColor.flatRed //UIColor(gradientStyle: .topToBottom, withFrame: self.baseView.frame, andColors: [colorSheet().alabaster!, colorSheet().shadyLady!])
-        
-        var shadyLady = UIColor(hexString: "#9D9D9E")
-        var alabaster = UIColor(hexString: "#F9FBFC")
+        // UI
         setLabelColors(color: colorSheet().stoneCold!)
-        //titleLabel.text = movie?.title
-        if let movie = movie {
-            titleLabel.text = movie.title
-            descriptionLabel.text = movie.overview
-            //print(descriptionLabel.text)
-            voteCountLabel.text = String(movie.voteCount)
-            voteAverageLabel.text = String(movie.voteAverage)
+        setMovieDetails()
+        configureViews()
             
-            if descriptionLabel.text == nil {
-                print("yes nil")
-            }
-            
-            posterImageView.af_setImage(withURL: URL(string: movie.posterPath)!)
-            //backdropImageView.af_setImage(withURL: URL(string: movie.backdropPath)!)
-            //backdropImageView.contentMode = .scaleAspectFill
-            let url = URL(string: movie.backdropPath)!
-            let data = try! Data(contentsOf: url)
-            let image = UIImage(data: data)
-            let test = CGSize(width: 500, height: 600)
-            let resizedImage = image?.af_imageAspectScaled(toFill: test)
-                //image?.resizedImageWithinRect(rectSize: test)
-            
-            backdropImageView.image = image
-            backdropImageView.contentMode = .scaleAspectFill
-            
-            var gradient: CAGradientLayer = CAGradientLayer()
-            gradient.frame = self.view.frame
-            gradient.colors = [UIColor.clear.cgColor, alabaster?.cgColor]
-            gradient.locations = [0.1, 0.4]
-            backdropImageView.layer.insertSublayer(gradient, at: 0)
-            //backdropImageView.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.backdropImageView.frame, andColors: [UIColor.clear, alabaster!])
-//            var baseViewGradient: CAGradientLayer = CAGradientLayer()
-//            baseViewGradient
-//            self.baseView.layer.insertSublayer(UIColor.flatRed, at: 1)
-            
-//            let image = backdropImageView.image
-//            let resize = image?.af_imageAspectScaled(toFit: self.scrollView.contentSize)
-//            backdropImageView.image = resize
-            
-            
-
-        }
-        
+        // CollectionView
+        recommendedCollectionView.register(GridCell.self)
+        recommendedCollectionView.delegate = self
+        recommendedCollectionView.dataSource = self
+        recommendedCollectionView.backgroundColor = UIColor.clear
 
         // Do any additional setup after loading the view.
     }
@@ -95,33 +67,38 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func youtube(movieID: String) {
-        
-        //let id = movieID!
-        let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = URL(string: "https://api.themoviedb.org/3/movie/\(movieID)/videos?api_key=\(apiKey)&language=en-US")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+    func setMovieDetails() {
+        if let movie = movie {
+            titleLabel.text = movie.title
+            descriptionLabel.text = movie.overview
+            //print(descriptionLabel.text)
+            voteCountLabel.text = String(movie.voteCount)
+            voteAverageLabel.text = String(movie.voteAverage)
             
-            var movies: [Movie] = []
+            posterImageView.af_setImage(withURL: URL(string: movie.posterPath)!)
+            //backdropImageView.af_setImage(withURL: URL(string: movie.backdropPath)!)
+            //backdropImageView.contentMode = .scaleAspectFill
+            let url = URL(string: movie.backdropPath)!
+            let data = try! Data(contentsOf: url)
+            let image = UIImage(data: data)
+            let test = CGSize(width: 500, height: 600)
+            let resizedImage = image?.af_imageAspectScaled(toFill: test)
+            //image?.resizedImageWithinRect(rectSize: test)
             
-            guard let data = data,
-                let dataDictionary = try!JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary,
-                let results = dataDictionary["results"] as? [NSDictionary],
-                let movieKey = results[0]["key"] as? String
-                else { fatalError(error as! String) }
-        
-        
-        let youtubeBaseUrl = "https://www.youtube.com/embed/\(movieKey)"
-        
-        self.youtubeWebView.allowsInlineMediaPlayback = true
-        self.youtubeWebView.loadRequest(URLRequest(url: URL(string: youtubeBaseUrl)!))
-        //youtubeWebView.loadHTMLString("<iframe width=\"\(youtubeWebView.frame.width)\" height=\"\(youtubeWebView.frame.height)\" src=\"\(youtubeBaseUrl)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
+            backdropImageView.image = image
+            backdropImageView.contentMode = .scaleAspectFill
         }
-        
-        task.resume()
     }
+    
+    func configureViews() {
+        var gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.view.frame
+        gradient.colors = [UIColor.clear.cgColor, colorSheet().alabaster?.cgColor]
+        gradient.locations = [0.1, 0.4]
+        backdropImageView.layer.insertSublayer(gradient, at: 0)
+    
+    }
+        
     
     func setLabelColors(color: UIColor) {
         titleLabel.textColor = color
@@ -130,11 +107,7 @@ class DetailViewController: UIViewController {
         voteCountLabel.textColor = color
         voteAverageLabel.textColor = color
     }
-    func setBackgroundColors() {
-        
-    }
     
-
     /*
     // MARK: - Navigation
 
@@ -179,13 +152,7 @@ extension UIImage {
     
 }
 
-struct colorSheet {
-    var shadyLady = UIColor(hexString: "#9D9D9E")
-    var iron = UIColor(hexString: "#C9CCCD")
-    var alabaster = UIColor(hexString: "#F9FBFC")
-    var oysterBay = UIColor(hexString: "#D7E6E9")
-    var stoneCold = UIColor(hexString: "#707274")
-}
+
 
 // Tests
 //guard let url = NSURL(string: "http://placehold.it/300x150") else { fatalError("Bad URL") }
