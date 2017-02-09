@@ -24,19 +24,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         
-        let nowPlayingNavigationController = storyboard.instantiateViewController(withIdentifier: "MoviesNavigationController") as! UINavigationController
-        let nowPlayingViewController = nowPlayingNavigationController.topViewController as! MoviesViewController
+        let nowPlayingViewController = storyboard.instantiateViewController(withIdentifier: "MoviesViewController") as! MoviesViewController
         nowPlayingViewController.endpoint = "now_playing"
-        nowPlayingNavigationController.tabBarItem.title = "Now Playing"
         
-        let topRatedNavigationController = storyboard.instantiateViewController(withIdentifier: "MoviesNavigationController") as! UINavigationController
-        let topRatedViewController = topRatedNavigationController.topViewController as! MoviesViewController
+        
+        let topRatedViewController = storyboard.instantiateViewController(withIdentifier: "MoviesViewController") as! MoviesViewController
         topRatedViewController.endpoint = "top_rated"
-        topRatedNavigationController.tabBarItem.title = "Top Rated"
         
-        tabBarControler.setViewControllers([nowPlayingNavigationController, topRatedNavigationController], animated: true)
-
-        window?.rootViewController = tabBarControler
+        let watchLaterViewController = storyboard.instantiateViewController(withIdentifier: "WatchLaterViewController")
+        
+        tabBarControler.setViewControllers([nowPlayingViewController, topRatedViewController, watchLaterViewController], animated: true)
+        let moviesNavigationController = UINavigationController(rootViewController: tabBarControler)
+        
+        nowPlayingViewController.navigationController?.tabBarItem.title = "Now Playing"
+        
+        window?.rootViewController = moviesNavigationController
         window?.makeKeyAndVisible()
         
         return true

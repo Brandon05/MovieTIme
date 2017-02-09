@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     @IBOutlet var youtubeWebView: MaterialWebView!
     @IBOutlet var recommendedCollectionView: UICollectionView!
     var recommendedMovies = [Movie]()
+    //var watchLater = [Movie]()
     
     var movie: Movie! {
         didSet {
@@ -47,6 +48,9 @@ class DetailViewController: UIViewController {
         self.baseView.backgroundColor = colorSheet().alabaster
         self.scrollView.backgroundColor = colorSheet().alabaster
         self.baseView.translatesAutoresizingMaskIntoConstraints = false
+        
+        var watchLater = WatchLater.movies
+        watchLater.append(movie)
         
         // UI
         setLabelColors(color: colorSheet().stoneCold!)
@@ -108,6 +112,11 @@ class DetailViewController: UIViewController {
         voteAverageLabel.textColor = color
     }
     
+    @IBAction func onWatchLater(_ sender: Any) {
+        
+        WatchLater.movies.append(self.movie)
+        print(WatchLater.movies)
+    }
     /*
     // MARK: - Navigation
 
