@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="re0-7q-GDM">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j3J-LH-GG3">
                                     <size key="itemSize" width="50" height="50"/>
@@ -51,10 +51,10 @@
                             <constraint firstItem="zok-yy-Tbt" firstAttribute="top" secondItem="3Y0-YP-vFW" secondAttribute="bottom" id="AOC-J8-9oT"/>
                             <constraint firstAttribute="trailing" secondItem="zok-yy-Tbt" secondAttribute="trailing" id="HAo-AG-GQF"/>
                             <constraint firstItem="zok-yy-Tbt" firstAttribute="leading" secondItem="LTW-qL-2I1" secondAttribute="leading" id="NuU-Gg-bTo"/>
-                            <constraint firstItem="re0-7q-GDM" firstAttribute="top" secondItem="zok-yy-Tbt" secondAttribute="bottom" constant="-42" id="Pio-FE-GrV"/>
+                            <constraint firstItem="re0-7q-GDM" firstAttribute="top" secondItem="zok-yy-Tbt" secondAttribute="bottom" constant="-62" id="Pio-FE-GrV"/>
                             <constraint firstAttribute="trailing" secondItem="re0-7q-GDM" secondAttribute="trailing" id="cZ4-Eo-cWD"/>
                             <constraint firstItem="re0-7q-GDM" firstAttribute="leading" secondItem="LTW-qL-2I1" secondAttribute="leading" id="dC6-bJ-CF2"/>
-                            <constraint firstItem="re0-7q-GDM" firstAttribute="top" secondItem="3Y0-YP-vFW" secondAttribute="bottom" id="qfv-2F-Fli"/>
+                            <constraint firstItem="re0-7q-GDM" firstAttribute="top" secondItem="3Y0-YP-vFW" secondAttribute="bottom" constant="-20" id="qfv-2F-Fli"/>
                             <constraint firstItem="kAc-nB-wti" firstAttribute="top" secondItem="re0-7q-GDM" secondAttribute="bottom" id="x8k-f6-fOX"/>
                         </constraints>
                     </view>
@@ -270,7 +270,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yuB-Oa-vCg">
-                                <rect key="frame" x="0.0" y="62" width="375" height="605"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4d2-n4-hae">
                                     <size key="itemSize" width="50" height="50"/>
@@ -298,10 +298,10 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kTZ-Zs-ZUZ" secondAttribute="trailing" id="3QI-JX-jg2"/>
                             <constraint firstItem="kTZ-Zs-ZUZ" firstAttribute="leading" secondItem="XNY-hl-sBT" secondAttribute="leading" id="4Wk-4d-Zfx"/>
-                            <constraint firstItem="yuB-Oa-vCg" firstAttribute="top" secondItem="bPU-9K-LAJ" secondAttribute="bottom" constant="42" id="8Cu-Av-mxX"/>
+                            <constraint firstItem="yuB-Oa-vCg" firstAttribute="top" secondItem="bPU-9K-LAJ" secondAttribute="bottom" constant="-20" id="8Cu-Av-mxX"/>
                             <constraint firstAttribute="trailing" secondItem="yuB-Oa-vCg" secondAttribute="trailing" id="ABp-CG-bsy"/>
                             <constraint firstItem="kTZ-Zs-ZUZ" firstAttribute="top" secondItem="bPU-9K-LAJ" secondAttribute="bottom" id="Cbf-JV-lfl"/>
-                            <constraint firstItem="yuB-Oa-vCg" firstAttribute="top" secondItem="kTZ-Zs-ZUZ" secondAttribute="bottom" id="CyM-6w-r76"/>
+                            <constraint firstItem="yuB-Oa-vCg" firstAttribute="top" secondItem="kTZ-Zs-ZUZ" secondAttribute="bottom" constant="-62" id="CyM-6w-r76"/>
                             <constraint firstItem="yuB-Oa-vCg" firstAttribute="leading" secondItem="XNY-hl-sBT" secondAttribute="leading" id="Tpv-dL-6IR"/>
                             <constraint firstItem="yIy-iU-cBU" firstAttribute="top" secondItem="yuB-Oa-vCg" secondAttribute="bottom" id="bJn-Vt-y4y"/>
                         </constraints>
@@ -320,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k3L-TL-9PS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="1524"/>
+            <point key="canvasLocation" x="1076" y="1523.3883058470765"/>
         </scene>
     </scenes>
 </document>

@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import CoreData
 
-struct Movie {
+struct Movie: Hashable {
     var title: String
     let overview: String
     let posterPath: String
@@ -16,10 +17,13 @@ struct Movie {
     let voteAverage: Double
     let voteCount: Int
     let id: Int
+
+    var hashValue: Int { get { return title.hashValue } }
     
 }
 
 extension Movie {
+
     init?(dictionary: NSDictionary){
         guard let title = dictionary["title"] as? String,
             let overview = dictionary["overview"] as? String,
@@ -42,5 +46,9 @@ extension Movie {
         self.voteAverage = voteAverage
         self.voteCount = voteCount
         self.id = movieID
+    }
+    
+    static func ==(left:Movie, right:Movie) -> Bool {
+        return left.id == right.id
     }
 }

@@ -7,29 +7,42 @@
 //
 
 import UIKit
-
-struct WatchLater {
-    
-    static var movies = [Movie]()
-}
+import CoreData
 
 class WatchLaterViewController: UIViewController {
 
     @IBOutlet var watchLaterCollectionView: UICollectionView!
     @IBOutlet var searchView: UIView!
     
-    var watchLater = [Movie]()
+    var watchLaterAll = [Movie]()
+    var watchLaterFiltered = [Movie]()
+    var movies = [Movie]()
+    
+    var searchController: UISearchController!
+    //let context = getContext() //(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        watchLater = WatchLater.movies
-        print(watchLater)
+        
+        initiateSearchController()
+        searchController.searchBar.delegate = self
         
         watchLaterCollectionView.delegate = self
         watchLaterCollectionView.dataSource = self
         watchLaterCollectionView.register(GridCell.self)
         watchLaterCollectionView.collectionViewLayout = GridFlowLayout()
+        watchLaterCollectionView.insertSubview(refreshControl, at: 0)
+        
+        refreshControl.addTarget(self, action: #selector(WatchLaterViewController.refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        searchController.searchBar.text = ""
+        searchController.dismiss(animated: true, completion: nil)
+        getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +50,13 @@ class WatchLaterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        //refreshRingView?.backgroundColor = UIColor.clear
+        refreshControl.tintColor = UIColor.flatBlack
+        getData()
+        
+    }
+    
     /*
     // MARK: - Navigation
 

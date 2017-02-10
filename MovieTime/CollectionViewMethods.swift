@@ -69,14 +69,14 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 extension WatchLaterViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard watchLater != nil else {print("No Movies"); return 0}
+        guard watchLaterFiltered != nil else {print("No Movies"); return 0}
         
-        return watchLater.count
+        return watchLaterFiltered.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let gridCell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as GridCell
-        let movie = watchLater[indexPath.row]
+        let movie = watchLaterFiltered[indexPath.row]
         
         return gridCell.bind(movie)
     }

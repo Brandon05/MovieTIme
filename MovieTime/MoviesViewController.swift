@@ -9,9 +9,10 @@
 import UIKit
 import ConcentricProgressRingView
 import MIAlertController
+import CoreData
 
 
-class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResultsUpdating, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResultsUpdating, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, CoreData {
 
     @IBOutlet var moviesTableView: UITableView!
     @IBOutlet var moviesCollectionView: UICollectionView!
@@ -56,6 +57,7 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //deleteRecords()
         moviesCollectionView.dataSource = self
         moviesCollectionView.delegate = self
         
@@ -119,7 +121,7 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
         
         if (self.lastContentOffset > scrollView.contentOffset.y) {
             // move up
-            print("\(self.lastContentOffset) vs \(scrollView.contentOffset.y)")
+            //print("\(self.lastContentOffset) vs \(scrollView.contentOffset.y)")
             
             //updateRefreshRing(withValue: offset)
             switch offset {
@@ -194,6 +196,8 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
             detailViewController.movie = movies[(cell.tag)]
         }
     }
+    
+
  
 
 }
