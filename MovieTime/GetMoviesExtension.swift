@@ -17,7 +17,7 @@ extension MoviesViewController {
             ring.setProgress(progress: 0.5, duration: 2)
         }
         
-        let when = DispatchTime.now() + 0.8
+        let when = DispatchTime.now() + 1.2
         
         // the get funciton is called here
         service.get() { [weak self] result in

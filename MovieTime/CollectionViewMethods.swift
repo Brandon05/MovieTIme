@@ -83,14 +83,16 @@ extension WatchLaterViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-//        let cell = recommendedCollectionView.cellForItem(at: indexPath) as! GridCell
-//        let movie = recommendedMovies[indexPath.row]
+        let cell = watchLaterCollectionView.cellForItem(at: indexPath) as! GridCell
+        let movie = watchLaterFiltered[indexPath.row]
 //        //guard let movie = movies[(cell.tag)] as? Movie else {print("error passing data")}
-//        guard cell != nil else {return}
+        guard cell != nil else {return}
 //        print(movie)
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-//        vc.movie = movie
-//        //this is the data which will be passed to the new vc
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+//      this is the data which will be passed to the new vc
+        vc.movie = movie
+    
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
