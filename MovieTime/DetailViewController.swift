@@ -147,6 +147,12 @@ class DetailViewController: UIViewController {
         //sender.layoutIfNeeded()
         // Remove save target to avoid duplicates
         sender.removeTarget(self, action: #selector(DetailViewController.didSave(sender:)), for: UIControlEvents.touchDown )
+        sender.addTarget(self, action: #selector(DetailViewController.didRemove(sender:)), for: UIControlEvents.touchDown)
+    }
+    
+    func didRemove(sender: UIButton) {
+        // Remove from Core Data
+        
     }
     
     func configure(button: UIButton, withTitle title: String) {
