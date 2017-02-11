@@ -69,12 +69,27 @@ class DetailViewController: UIViewController {
         buyButton.addTarget(self, action: #selector(DetailViewController.didHold(sender:)), for: UIControlEvents.touchDown)
         buyButton.addTarget(self, action: #selector(DetailViewController.didRelease(sender:)), for: UIControlEvents.touchDown)
         // If movie.id is already saved, do not add target
-        if defaults.bool(forKey: "\(movie.id)") != true {
-        watchLaterButton.addTarget(self, action: #selector(DetailViewController.didSave(sender:)), for: UIControlEvents.touchDown)
-        }
-
+//        if defaults.bool(forKey: "\(movie.id)") != true {
+//        watchLaterButton.addTarget(self, action: #selector(DetailViewController.didSave(sender:)), for: UIControlEvents.touchDown)
+//        } else {
+//        watchLaterButton.addTarget(self, action: #selector(DetailViewController.didRemove(sender:)), for: UIControlEvents.touchDown)
+//        }
+        //let saveTarget = watchLaterButton.addTarget(self, action: #selector(DetailViewController.didSave(sender:)), for: UIControlEvents.touchDown)
+        defaults.bool(forKey: "\(movie.id)") != true ? addSaveTarget() : addRemoveTarget()
+        
         // Do any additional setup after loading the view.
     }
+    
+    func addSaveTarget() {
+        watchLaterButton.removeTarget(self, action: #selector(DetailViewController.didRemove(sender:)), for: UIControlEvents.touchDown)
+        watchLaterButton.addTarget(self, action: #selector(DetailViewController.didSave(sender:)), for: UIControlEvents.touchDown)
+    }
+    
+    func addRemoveTarget() {
+        watchLaterButton.removeTarget(self, action: #selector(DetailViewController.didSave(sender:)), for: UIControlEvents.touchDown )
+        watchLaterButton.addTarget(self, action: #selector(DetailViewController.didRemove(sender:)), for: UIControlEvents.touchDown)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -146,13 +161,23 @@ class DetailViewController: UIViewController {
         }
         //sender.layoutIfNeeded()
         // Remove save target to avoid duplicates
-        sender.removeTarget(self, action: #selector(DetailViewController.didSave(sender:)), for: UIControlEvents.touchDown )
-        sender.addTarget(self, action: #selector(DetailViewController.didRemove(sender:)), for: UIControlEvents.touchDown)
+        addRemoveTarget()
+//        sender.removeTarget(self, action: #selector(DetailViewController.didSave(sender:)), for: UIControlEvents.touchDown )
+//        sender.addTarget(self, action: #selector(DetailViewController.didRemove(sender:)), for: UIControlEvents.touchDown)
     }
     
     func didRemove(sender: UIButton) {
         // Remove from Core Data
-        
+        removeData(for: self.movie)
+        sender.superview?.backgroundColor = UIColor.flatRed
+        sender.setTitle(" Watch Later ", for: [])
+        UIView.animate(withDuration: 0.2) {
+            sender.layoutIfNeeded()
+        }
+        addSaveTarget()
+//        sender.removeTarget(self, action: #selector(DetailViewController.didRemove(sender:)), for: UIControlEvents.touchDown )
+//        sender.addTarget(self, action: #selector(DetailViewController.didSave(sender:)), for: UIControlEvents.touchDown)
+        defaults.set(false, forKey: "\(movie.id)")
     }
     
     func configure(button: UIButton, withTitle title: String) {

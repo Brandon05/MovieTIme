@@ -58,6 +58,66 @@ extension CoreData {
         UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         UserDefaults.standard.synchronize()
     }
+    
+    // MARK:- Cast NSManagedObject to Movie
+    func typeMovie(_ movies: [WatchLaterMovie]) -> [Movie] {
+        var castedMovies = [Movie]()
+        // A flatmap method may be better? Guard against nil
+        for result in movies {
+            let castedMovie = Movie(title: result.title!, overview: result.overview!, posterPath: result.posterPath!, backdropPath: result.backdropPath!, voteAverage: result.voteAverage as! Double, voteCount: Int(result.voteCount!), id: Int(result.id!))
+            castedMovies.append(castedMovie)
+        }
+        // return reversed so the latest saved movie is first
+        return castedMovies.reversed()
+    }
+    
+    func typeNSManagedObject(_ movie: Movie) -> NSManagedObject {
+        //var watchLaterMovie = WatchLaterMovie()
+        let context = getContext()
+        let entity = NSEntityDescription.entity(forEntityName: "WatchLaterMovie", in: context)
+        var watchLaterMovie = NSManagedObject(entity: entity!, insertInto: nil)
+        
+        
+        watchLaterMovie.setValue(movie.title, forKey: "title")
+        watchLaterMovie.setValue(movie.overview, forKey: "overview")
+        watchLaterMovie.setValue(movie.posterPath, forKey: "posterPath")
+        watchLaterMovie.setValue(movie.backdropPath, forKey: "backdropPath")
+        watchLaterMovie.setValue(movie.voteAverage, forKey: "voteAverage")
+        watchLaterMovie.setValue(movie.voteCount, forKey: "voteCount")
+        watchLaterMovie.setValue(movie.id, forKey: "id")
+        print(watchLaterMovie)
+        return watchLaterMovie
+    }
+    
+    func removeData(for movie: Movie) {
+        let context = getContext()
+        let request: NSFetchRequest<WatchLaterMovie>
+        if #available(iOS 10.0, OSX 10.12, *) {
+            request = WatchLaterMovie.fetchRequest()
+        } else {
+            request = NSFetchRequest(entityName: "WatchLaterMovie")
+        }
+
+        let castedMovie = typeNSManagedObject(movie)
+        
+        do {
+            let results = try context.fetch(request) as [WatchLaterMovie]
+            
+            // Cast NSManagedObject from core data to type Movie and append
+            let movieToDelete = results.filter({$0.id == (movie.id as NSNumber)})//results.first(where: {$0.id == movie.id})//results.filter{($0 == castedMovie)}
+            print(results[0])
+            print(movieToDelete)
+            context.delete(movieToDelete[0])
+            try context.save()
+        } catch {
+            print("Fetching Failed")
+        }
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
 }
 
 extension WatchLaterViewController: CoreData {
@@ -86,17 +146,30 @@ extension WatchLaterViewController: CoreData {
         }
     }
     
-        // MARK:- Cast NSManagedObject to Movie
-    func typeMovie(_ movies: [WatchLaterMovie]) -> [Movie] {
-        var castedMovies = [Movie]()
-        // A flatmap method may be better? Guard against nil
-        for result in movies {
-        let castedMovie = Movie(title: result.title!, overview: result.overview!, posterPath: result.posterPath!, backdropPath: result.backdropPath!, voteAverage: result.voteAverage as! Double, voteCount: Int(result.voteCount!), id: Int(result.id!))
-            castedMovies.append(castedMovie)
+    func removeData(for movie: Movie) {
+        let context = getContext()
+        let movieToDelete = typeNSManagedObject(movie)
+        context.delete(movieToDelete)
+        
+        
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
-        // return reversed so the latest saved movie is first
-        return castedMovies.reversed()
     }
+    
+//        // MARK:- Cast NSManagedObject to Movie
+//    func typeMovie(_ movies: [WatchLaterMovie]) -> [Movie] {
+//        var castedMovies = [Movie]()
+//        // A flatmap method may be better? Guard against nil
+//        for result in movies {
+//        let castedMovie = Movie(title: result.title!, overview: result.overview!, posterPath: result.posterPath!, backdropPath: result.backdropPath!, voteAverage: result.voteAverage as! Double, voteCount: Int(result.voteCount!), id: Int(result.id!))
+//            castedMovies.append(castedMovie)
+//        }
+//        // return reversed so the latest saved movie is first
+//        return castedMovies.reversed()
+//    }
     
     // Beacause I am casting NSManagedObject into the struct Movie and then appending to the collectionviewdatasource, movies are duplicated on each fetchRequest()
     // EDIT:- Not needed, I just appened casted core data to watchLaterAll and Filtered
@@ -114,7 +187,7 @@ extension WatchLaterViewController: CoreData {
     
 }
 
-extension DetailViewController {
+extension DetailViewController: CoreData {
     
     func save(_ watchLaterMovie: Movie) {
         
@@ -148,4 +221,10 @@ extension DetailViewController {
         }
        
     }
+    
+//    func removeData(for movie: Movie) {
+////        let context = getContext()
+////        context.delete(movie)
+////        context.save()
+//    }
 }
