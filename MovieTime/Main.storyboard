@@ -190,9 +190,6 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWJ-kn-Uh8">
                                                         <rect key="frame" x="0.0" y="0.0" width="98" height="34"/>
                                                         <state key="normal" title="Watch Later"/>
-                                                        <connections>
-                                                            <action selector="onWatchLater:" destination="IwI-b6-C9y" eventType="touchUpInside" id="Pwi-y0-S8J"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

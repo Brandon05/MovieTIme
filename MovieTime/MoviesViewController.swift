@@ -66,6 +66,8 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
         moviesCollectionView.delegate = self
         
         self.automaticallyAdjustsScrollViewInsets = false
+//        deleteRecords()
+//        clearDefaults()
         
         //refreshRingView?.arcs[0].setProgress(progress: 1, duration: 0.1)
         

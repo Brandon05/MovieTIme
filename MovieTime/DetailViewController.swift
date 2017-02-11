@@ -68,7 +68,10 @@ class DetailViewController: UIViewController {
         // Button Configuration
         buyButton.addTarget(self, action: #selector(DetailViewController.didHold(sender:)), for: UIControlEvents.touchDown)
         buyButton.addTarget(self, action: #selector(DetailViewController.didRelease(sender:)), for: UIControlEvents.touchDown)
+        // If movie.id is already saved, do not add target
+        if defaults.bool(forKey: "\(movie.id)") != true {
         watchLaterButton.addTarget(self, action: #selector(DetailViewController.didSave(sender:)), for: UIControlEvents.touchDown)
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -134,13 +137,16 @@ class DetailViewController: UIViewController {
     }
     
     func didSave(sender: UIButton) {
+        save(self.movie)
         defaults.set(true, forKey: "\(movie.id)")
         sender.superview?.backgroundColor = UIColor.flatRedDark
         sender.setTitle(" Saved ", for: [])
         UIView.animate(withDuration: 0.2) { 
             sender.layoutIfNeeded()
         }
-        sender.layoutIfNeeded()
+        //sender.layoutIfNeeded()
+        // Remove save target to avoid duplicates
+        sender.removeTarget(self, action: #selector(DetailViewController.didSave(sender:)), for: UIControlEvents.touchDown )
     }
     
     func configure(button: UIButton, withTitle title: String) {
@@ -165,11 +171,6 @@ class DetailViewController: UIViewController {
         descriptionLabel.textColor = color
         voteCountLabel.textColor = color
         voteAverageLabel.textColor = color
-    }
-    
-    @IBAction func onWatchLater(_ sender: Any) {
-        
-        save(self.movie)
     }
 
     @IBAction func onBuy(_ sender: Any) {

@@ -52,6 +52,12 @@ extension CoreData {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
+    
+    // MARK:- Clear all data in UserDefaults
+    func clearDefaults() {
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
+    }
 }
 
 extension WatchLaterViewController: CoreData {
@@ -64,15 +70,21 @@ extension WatchLaterViewController: CoreData {
         } else {
             request = NSFetchRequest(entityName: "WatchLaterMovie")
         }
-        print(request)
+        
         do {
-            let results = try context.fetch(request) as! [WatchLaterMovie]
+            let results = try context.fetch(request) as [WatchLaterMovie]
             var data = [Movie]()
+//            let predicate = NSPredicate(
+//            (results as NSArray).filtered(using: <#T##NSPredicate#>)
+            let filteredResults = removeDuplicateMovies(in: results)
+            // Iterating through [WatchLaterMovie] to cast it from type 'NSManagedObject' to 'Movie' type
             for result in results {
                 print(result)
                 let movie = Movie(title: result.title!, overview: result.overview!, posterPath: result.posterPath!, backdropPath: result.backdropPath!, voteAverage: result.voteAverage as! Double, voteCount: Int(result.voteCount!), id: Int(result.id!))
                 data.append(movie)
             }
+            
+            // Remove duplicates since I add all movies, including existing ones, on each fetchRequest()
             watchLaterAll = removeDuplicateMovies(in: data)
             watchLaterFiltered = removeDuplicateMovies(in: data)
             watchLaterCollectionView.reloadData()
@@ -82,7 +94,7 @@ extension WatchLaterViewController: CoreData {
         }
     }
     
-    // Beacause I am casting NSManagedObject into the struct Movie and then appending to the collectionviewdatasource, there are duplicate movies
+    // Beacause I am casting NSManagedObject into the struct Movie and then appending to the collectionviewdatasource, movies are duplicated on each fetchRequest()
     func removeDuplicateMovies(in movies: [Movie]) -> [Movie] {
         var alreadyThere = Set<Movie>()
         let uniquePosts = movies.flatMap { (movie) -> Movie? in
@@ -91,6 +103,16 @@ extension WatchLaterViewController: CoreData {
             return movie
         }
         return uniquePosts.reversed()
+    }
+    
+    func removeDuplicateMovies(in movies: [WatchLaterMovie]) -> [WatchLaterMovie] {
+        var alreadyThere = Set<WatchLaterMovie>()
+        let uniquePosts = movies.flatMap { (movie) -> WatchLaterMovie? in
+            guard !alreadyThere.contains(movie) else { return nil }
+            alreadyThere.insert(movie)
+            return movie
+        }
+        return uniquePosts
     }
     
 }
