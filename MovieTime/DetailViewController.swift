@@ -12,6 +12,10 @@ import CoreData
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet var watchBackgroundView: MaterialCard!
+    @IBOutlet var buyBackgroundView: MaterialCard!
+    @IBOutlet var watchLaterButton: UIButton!
+    @IBOutlet var buyButton: UIButton!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var baseView: UIView!
@@ -22,6 +26,7 @@ class DetailViewController: UIViewController {
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var youtubeWebView: MaterialWebView!
     @IBOutlet var recommendedCollectionView: UICollectionView!
+    let defaults = UserDefaults.standard
     var recommendedMovies = [Movie]()
     
     var movie: Movie! {
@@ -59,6 +64,11 @@ class DetailViewController: UIViewController {
         recommendedCollectionView.delegate = self
         recommendedCollectionView.dataSource = self
         recommendedCollectionView.backgroundColor = UIColor.clear
+        
+        // Button Configuration
+        buyButton.addTarget(self, action: #selector(DetailViewController.didHold(sender:)), for: UIControlEvents.touchDown)
+        buyButton.addTarget(self, action: #selector(DetailViewController.didRelease(sender:)), for: UIControlEvents.touchDown)
+        watchLaterButton.addTarget(self, action: #selector(DetailViewController.didSave(sender:)), for: UIControlEvents.touchDown)
 
         // Do any additional setup after loading the view.
     }
@@ -66,6 +76,13 @@ class DetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        configure(button: buyButton, withTitle: " Tickets ")
+        configure(button: watchLaterButton, withTitle: " Watch Later ")
+        //self.navigationController?.navigationBar.topItem?.title = "\(movie.title)"
     }
     
     func setMovieDetails() {
@@ -98,7 +115,47 @@ class DetailViewController: UIViewController {
         gradient.colors = [UIColor.clear.cgColor, colorSheet().alabaster?.cgColor]
         gradient.locations = [0.1, 0.4]
         backdropImageView.layer.insertSublayer(gradient, at: 0)
+        
+        //Material Button
+//        buyButton.backgroundColor = UIColor.clear
+//        buyButton.setTitle("Tickets", for: [])
+//        buyButton.titleLabel?.textColor = UIColor.flatWhite
+//        buyBackgroundView.backgroundColor = UIColor.flatRed
+        //buyButton.titleColor(for: .selected) = UIColor.flatGray
     
+    }
+    
+    func didHold(sender: UIButton) {
+        sender.superview?.backgroundColor = UIColor.flatRedDark
+    }
+    
+    func didRelease(sender: UIButton) {
+        sender.superview?.backgroundColor = UIColor.flatRed
+    }
+    
+    func didSave(sender: UIButton) {
+        defaults.set(true, forKey: "\(movie.id)")
+        sender.superview?.backgroundColor = UIColor.flatRedDark
+        sender.setTitle(" Saved ", for: [])
+        UIView.animate(withDuration: 0.2) { 
+            sender.layoutIfNeeded()
+        }
+        sender.layoutIfNeeded()
+    }
+    
+    func configure(button: UIButton, withTitle title: String) {
+        
+        // Check if movie has been saved already
+        if title == " Watch Later " && defaults.bool(forKey: "\(movie.id)") == true {
+            button.setTitle(" Saved ", for: [])
+            button.superview?.backgroundColor = UIColor.flatRedDark
+        } else {
+            button.setTitle(title, for: [])
+            button.superview?.backgroundColor = UIColor.flatRed
+        }
+        
+        button.titleLabel?.textColor = UIColor.flatWhite
+        button.backgroundColor = UIColor.clear
     }
         
     
@@ -115,6 +172,14 @@ class DetailViewController: UIViewController {
         save(self.movie)
     }
 
+    @IBAction func onBuy(_ sender: Any) {
+        let movieTitle = movie.title.replacingOccurrences(of: " ", with: "+")
+        guard let url = URL(string: "http://www.google.com/search?q=imdb.com/showtimes/+\(movieTitle)+showtimes+&btnI")
+            else {return} // Maybe an Alert?
+        UIApplication.shared.open(url, options: [:]) { (Bool) in
+            
+        }
+    }
     /*
     // MARK: - Navigation
 

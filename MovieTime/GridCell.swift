@@ -30,6 +30,9 @@ class GridCell: UICollectionViewCell {
 //        configureCell()
 //        baseView.layoutIfNeeded()
         //MaterialCard.addPulse(baseView)
+//        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+//            self.moviePosterImageView.alpha = 1.0
+//        })
     }
     
     var movie: Movie! {
@@ -45,6 +48,7 @@ class GridCell: UICollectionViewCell {
     }
     
     func bind(_ movie: Movie) -> Self {
+        //self.moviePosterImageView.alpha = 0
         moviePosterImageView.af_setImage(withURL: URL(string: movie.posterPath)!)
         //titleLabel.text = movie.title
         //descriptionLabel.text = movie.overview

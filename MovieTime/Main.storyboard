@@ -165,25 +165,60 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWJ-kn-Uh8">
-                                                <rect key="frame" x="269" y="246" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Watch Later"/>
-                                                <connections>
-                                                    <action selector="onWatchLater:" destination="IwI-b6-C9y" eventType="touchUpInside" id="Pwi-y0-S8J"/>
-                                                </connections>
-                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPk-cM-IhJ" customClass="MaterialCard" customModule="MovieTime" customModuleProvider="target">
+                                                <rect key="frame" x="27" y="289" width="99" height="34"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGY-CK-Fyn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="99" height="34"/>
+                                                        <state key="normal" title="Buy Tickets!"/>
+                                                        <connections>
+                                                            <action selector="onBuy:" destination="IwI-b6-C9y" eventType="touchUpInside" id="DiJ-lM-pRg"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="aGY-CK-Fyn" secondAttribute="trailing" id="5lJ-gg-HWN"/>
+                                                    <constraint firstAttribute="bottom" secondItem="aGY-CK-Fyn" secondAttribute="bottom" id="LMO-rD-OU6"/>
+                                                    <constraint firstItem="aGY-CK-Fyn" firstAttribute="top" secondItem="GPk-cM-IhJ" secondAttribute="top" id="VMz-Eb-43x"/>
+                                                    <constraint firstItem="aGY-CK-Fyn" firstAttribute="leading" secondItem="GPk-cM-IhJ" secondAttribute="leading" id="WAH-OT-T8A"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trY-qa-MRa" customClass="MaterialCard" customModule="MovieTime" customModuleProvider="target">
+                                                <rect key="frame" x="133" y="289" width="98" height="34"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWJ-kn-Uh8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="98" height="34"/>
+                                                        <state key="normal" title="Watch Later"/>
+                                                        <connections>
+                                                            <action selector="onWatchLater:" destination="IwI-b6-C9y" eventType="touchUpInside" id="Pwi-y0-S8J"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="fWJ-kn-Uh8" secondAttribute="bottom" id="HqN-Dw-lOA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="fWJ-kn-Uh8" secondAttribute="trailing" id="MrC-VI-Uf1"/>
+                                                    <constraint firstItem="fWJ-kn-Uh8" firstAttribute="top" secondItem="trY-qa-MRa" secondAttribute="top" id="S2f-qR-hZ6"/>
+                                                    <constraint firstItem="fWJ-kn-Uh8" firstAttribute="leading" secondItem="trY-qa-MRa" secondAttribute="leading" id="dYu-l8-EVY"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="zXM-Tv-lwj" firstAttribute="leading" secondItem="FG1-ye-6pE" secondAttribute="leading" constant="27" id="0kY-TS-imq"/>
+                                            <constraint firstItem="zXM-Tv-lwj" firstAttribute="top" secondItem="trY-qa-MRa" secondAttribute="bottom" constant="14" id="1EW-zW-GOE"/>
+                                            <constraint firstItem="GPk-cM-IhJ" firstAttribute="top" secondItem="FG1-ye-6pE" secondAttribute="top" constant="289" id="3vf-pl-a3S"/>
                                             <constraint firstItem="dTd-DO-9iB" firstAttribute="top" secondItem="zXM-Tv-lwj" secondAttribute="bottom" constant="26" id="7OL-R9-Cdm"/>
+                                            <constraint firstItem="GPk-cM-IhJ" firstAttribute="leading" secondItem="FG1-ye-6pE" secondAttribute="leading" constant="27" id="7fJ-h8-8LI"/>
                                             <constraint firstItem="dTd-DO-9iB" firstAttribute="leading" secondItem="FG1-ye-6pE" secondAttribute="leading" constant="27" id="9yd-Hd-HNx"/>
                                             <constraint firstAttribute="trailing" secondItem="wjK-G4-IoJ" secondAttribute="trailing" constant="8" id="Aad-li-8CH"/>
                                             <constraint firstAttribute="trailing" secondItem="dTd-DO-9iB" secondAttribute="trailing" constant="35" id="Dg8-xB-Fac"/>
                                             <constraint firstAttribute="bottom" secondItem="Ngh-kH-yb1" secondAttribute="bottom" id="DpS-VM-u2r"/>
                                             <constraint firstAttribute="trailing" secondItem="F1H-F9-4q9" secondAttribute="trailing" constant="42" id="E8G-jK-X5r"/>
+                                            <constraint firstItem="trY-qa-MRa" firstAttribute="leading" secondItem="GPk-cM-IhJ" secondAttribute="trailing" constant="7" id="IJR-rq-64j"/>
                                             <constraint firstAttribute="trailing" secondItem="wc9-Yu-Lnp" secondAttribute="trailing" constant="35" id="MQ3-OX-LjI"/>
+                                            <constraint firstItem="zXM-Tv-lwj" firstAttribute="top" secondItem="GPk-cM-IhJ" secondAttribute="bottom" constant="14" id="QDW-tb-CGl"/>
                                             <constraint firstItem="Ngh-kH-yb1" firstAttribute="leading" secondItem="FG1-ye-6pE" secondAttribute="leading" id="Qlh-x4-NqM"/>
                                             <constraint firstItem="wjK-G4-IoJ" firstAttribute="leading" secondItem="FG1-ye-6pE" secondAttribute="leading" constant="254" id="Ug2-lW-b0g"/>
                                             <constraint firstItem="F1H-F9-4q9" firstAttribute="top" secondItem="R5G-T9-aJG" secondAttribute="bottom" constant="4" id="W4e-vJ-kEj"/>
@@ -192,6 +227,7 @@
                                             <constraint firstItem="Ngh-kH-yb1" firstAttribute="top" secondItem="IgH-Of-HJ3" secondAttribute="bottom" constant="1" id="ZqM-cX-Dfs"/>
                                             <constraint firstItem="F1H-F9-4q9" firstAttribute="leading" secondItem="zXM-Tv-lwj" secondAttribute="trailing" constant="53" id="brK-Sr-BnH"/>
                                             <constraint firstItem="wjK-G4-IoJ" firstAttribute="top" secondItem="FG1-ye-6pE" secondAttribute="top" constant="8" id="cw5-yG-jKn"/>
+                                            <constraint firstItem="trY-qa-MRa" firstAttribute="top" secondItem="FG1-ye-6pE" secondAttribute="top" constant="289" id="dLM-fs-dt4"/>
                                             <constraint firstAttribute="trailing" secondItem="NiB-01-iTN" secondAttribute="trailing" constant="42" id="f2r-9O-Zcc"/>
                                             <constraint firstItem="wc9-Yu-Lnp" firstAttribute="leading" secondItem="FG1-ye-6pE" secondAttribute="leading" constant="27" id="h7e-DA-bkP"/>
                                             <constraint firstItem="dTd-DO-9iB" firstAttribute="top" secondItem="NiB-01-iTN" secondAttribute="bottom" constant="14" id="j0y-Vl-vKU"/>
@@ -228,6 +264,8 @@
                     <connections>
                         <outlet property="backdropImageView" destination="R5G-T9-aJG" id="CRj-Gg-71W"/>
                         <outlet property="baseView" destination="FG1-ye-6pE" id="N9k-i5-Xu5"/>
+                        <outlet property="buyBackgroundView" destination="GPk-cM-IhJ" id="aD7-Tf-rLO"/>
+                        <outlet property="buyButton" destination="aGY-CK-Fyn" id="NZ3-YN-gqQ"/>
                         <outlet property="descriptionLabel" destination="dTd-DO-9iB" id="qbd-vW-yiy"/>
                         <outlet property="posterImageView" destination="wjK-G4-IoJ" id="Et9-GO-Ldj"/>
                         <outlet property="recommendedCollectionView" destination="Ngh-kH-yb1" id="FHJ-Nd-rJt"/>
@@ -235,6 +273,8 @@
                         <outlet property="titleLabel" destination="zXM-Tv-lwj" id="x8v-RU-Nfx"/>
                         <outlet property="voteAverageLabel" destination="NiB-01-iTN" id="6A2-kk-byM"/>
                         <outlet property="voteCountLabel" destination="F1H-F9-4q9" id="Ohu-5I-ca2"/>
+                        <outlet property="watchBackgroundView" destination="trY-qa-MRa" id="BHD-Iy-WdQ"/>
+                        <outlet property="watchLaterButton" destination="fWJ-kn-Uh8" id="fcf-Eq-orz"/>
                         <outlet property="youtubeWebView" destination="wc9-Yu-Lnp" id="Mu9-tE-47B"/>
                     </connections>
                 </viewController>

@@ -75,10 +75,17 @@ extension WatchLaterViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
         let gridCell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as GridCell
+        let listCell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as ListCell
         let movie = watchLaterFiltered[indexPath.row]
         
-        return gridCell.bind(movie)
+        switch isGridFlowLayoutUsed {
+        case true:
+            return gridCell.bind(movie)
+        case false:
+            return listCell.bind(movie)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

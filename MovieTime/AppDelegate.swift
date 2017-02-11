@@ -34,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let watchLaterViewController = storyboard.instantiateViewController(withIdentifier: "WatchLaterViewController")
         
         tabBarControler.setViewControllers([nowPlayingViewController, topRatedViewController, watchLaterViewController], animated: true)
+        tabBarControler.tabBar.items?[0].title = "Now Playing"
+        tabBarControler.tabBar.items?[1].title = "Top Rated"
+        tabBarControler.tabBar.items?[2].title = "Watch Later"
+        
         let moviesNavigationController = UINavigationController(rootViewController: tabBarControler)
         
         nowPlayingViewController.navigationController?.tabBarItem.title = "Now Playing"

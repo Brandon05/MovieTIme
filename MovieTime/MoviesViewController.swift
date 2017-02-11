@@ -35,6 +35,8 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
     
     var endpoint: String!
     
+    //let nav = UINavigationController(rootViewController: MoviesViewController())
+    
     var movies = [Movie]() {
         
         didSet {
@@ -54,6 +56,8 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
     }
     
     let refreshControl = UIRefreshControl()
+    var switchButton: UIBarButtonItem!
+    var switchButtonMaterial = MaterialButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +68,8 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
         self.automaticallyAdjustsScrollViewInsets = false
         
         //refreshRingView?.arcs[0].setProgress(progress: 1, duration: 0.1)
+        
+        //self.navigationItem.setRightBarButton(switchButton, animated: true)
         
         concentricProgressRing()
         
@@ -88,6 +94,17 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
         getMovies(fromService: MovieService(endpoint: endpoint))
         searchController.searchBar.text = ""
         searchController.dismiss(animated: true, completion: nil)
+        
+        self.navigationController?.navigationBar.topItem?.title = "Movies"
+        switchButtonMaterial.addTarget(self, action: #selector(MoviesViewController.onSwitch(_:)), for: UIControlEvents.valueChanged)
+        switchButtonMaterial.backgroundColor = UIColor.flatRed
+        switchButtonMaterial.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        switchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "segueIconSmall"), style: .plain, target: self, action: #selector(onSwitch(_:)))
+        let switchButtonCustom = UIBarButtonItem(customView: switchButtonMaterial)
+        //switchButton.customView = switchButtonMaterial
+        
+        self.navigationItem.rightBarButtonItem  = switchButton
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = switchButton
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -98,7 +115,7 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
     
     // MARK: - Switch button between grid and list
     
-    @IBAction func onSwitch(_ sender: Any) {
+    func onSwitch(_ sender: Any) {
         
             if(self.isGridFlowLayoutUsed){
                 self.isGridFlowLayoutUsed = false

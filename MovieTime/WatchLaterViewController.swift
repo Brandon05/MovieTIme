@@ -18,6 +18,11 @@ class WatchLaterViewController: UIViewController {
     var watchLaterFiltered = [Movie]()
     var movies = [Movie]()
     
+    var gridFlowLayout = GridFlowLayout()
+    var listFlowLayout = ListFlowLayout()
+    
+    var isGridFlowLayoutUsed = true
+    
     var searchController: UISearchController!
     //let context = getContext() //(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let refreshControl = UIRefreshControl()
@@ -31,8 +36,12 @@ class WatchLaterViewController: UIViewController {
         watchLaterCollectionView.delegate = self
         watchLaterCollectionView.dataSource = self
         watchLaterCollectionView.register(GridCell.self)
+        watchLaterCollectionView.register(ListCell.self)
         watchLaterCollectionView.collectionViewLayout = GridFlowLayout()
         watchLaterCollectionView.insertSubview(refreshControl, at: 0)
+        watchLaterCollectionView.load(layout: gridFlowLayout)
+        
+        watchLaterCollectionView.collectionViewLayout = GridFlowLayout()
         
         refreshControl.addTarget(self, action: #selector(WatchLaterViewController.refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
         // Do any additional setup after loading the view.
@@ -43,6 +52,11 @@ class WatchLaterViewController: UIViewController {
         searchController.searchBar.text = ""
         searchController.dismiss(animated: true, completion: nil)
         getData()
+        
+        self.navigationController?.navigationBar.topItem?.title = "Watch Later"
+        let switchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "segueIconSmall"), style: .plain, target: self, action: #selector(onSwitch(_:)))
+        self.navigationItem.rightBarButtonItem  = switchButton
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = switchButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +69,20 @@ class WatchLaterViewController: UIViewController {
         refreshControl.tintColor = UIColor.flatBlack
         getData()
         
+    }
+    
+    func onSwitch(_ sender: Any) {
+        
+        if(self.isGridFlowLayoutUsed){
+            self.isGridFlowLayoutUsed = false
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            self.watchLaterCollectionView.load(layout: listFlowLayout)
+            watchLaterCollectionView.reloadData()
+        } else {
+            self.isGridFlowLayoutUsed = true
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            self.watchLaterCollectionView.load(layout: gridFlowLayout)
+        }
     }
     
     /*
