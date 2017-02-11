@@ -24,19 +24,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         
-        let nowPlayingNavigationController = storyboard.instantiateViewController(withIdentifier: "MoviesNavigationController") as! UINavigationController
-        let nowPlayingViewController = nowPlayingNavigationController.topViewController as! MoviesViewController
+        let nowPlayingViewController = storyboard.instantiateViewController(withIdentifier: "MoviesViewController") as! MoviesViewController
         nowPlayingViewController.endpoint = "now_playing"
-        nowPlayingNavigationController.tabBarItem.title = "Now Playing"
         
-        let topRatedNavigationController = storyboard.instantiateViewController(withIdentifier: "MoviesNavigationController") as! UINavigationController
-        let topRatedViewController = topRatedNavigationController.topViewController as! MoviesViewController
+        
+        let topRatedViewController = storyboard.instantiateViewController(withIdentifier: "MoviesViewController") as! MoviesViewController
         topRatedViewController.endpoint = "top_rated"
-        topRatedNavigationController.tabBarItem.title = "Top Rated"
         
-        tabBarControler.setViewControllers([nowPlayingNavigationController, topRatedNavigationController], animated: true)
-
-        window?.rootViewController = tabBarControler
+        let watchLaterViewController = storyboard.instantiateViewController(withIdentifier: "WatchLaterViewController")
+        
+        tabBarControler.setViewControllers([nowPlayingViewController, topRatedViewController, watchLaterViewController], animated: true)
+        tabBarControler.tabBar.items?[0].title = "Now Playing"
+        tabBarControler.tabBar.items?[1].title = "Top Rated"
+        tabBarControler.tabBar.items?[2].title = "Watch Later"
+        
+        let moviesNavigationController = UINavigationController(rootViewController: tabBarControler)
+        
+        nowPlayingViewController.navigationController?.tabBarItem.title = "Now Playing"
+        
+        window?.rootViewController = moviesNavigationController
         window?.makeKeyAndVisible()
         
         return true
@@ -75,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "MovieTIme")
+        let container = NSPersistentContainer(name: "MovieTime")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

@@ -34,6 +34,10 @@
 		026E38771E4C27DB0000037E /* CenterCellFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026E38761E4C27DB0000037E /* CenterCellFlowLayout.swift */; };
 		026E38791E4C376A0000037E /* DetailViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026E38781E4C376A0000037E /* DetailViewExtensions.swift */; };
 		026E387C1E4C37FE0000037E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026E387B1E4C37FE0000037E /* Colors.swift */; };
+		026E387E1E4C415E0000037E /* WatchLaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026E387D1E4C415E0000037E /* WatchLaterViewController.swift */; };
+		02D1710C1E4D384F00116823 /* WatchLaterMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1710B1E4D384F00116823 /* WatchLaterMovie.swift */; };
+		02D1710E1E4D519900116823 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1710D1E4D519900116823 /* CoreDataExtensions.swift */; };
+		02D171101E4D655300116823 /* MoviesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1710F1E4D655300116823 /* MoviesNavigationController.swift */; };
 		02ED9D011E494EA400D02A34 /* CollectionViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED9D001E494EA400D02A34 /* CollectionViewProtocols.swift */; };
 		20CABC72CBB93166FFFA60C7 /* Pods_MovieTimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22E1CD81E7AA086564ABEA0 /* Pods_MovieTimeUITests.framework */; };
 		23EC50636F004FDBA1A28034 /* Pods_MovieTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B41360B390B4DC300B3973 /* Pods_MovieTime.framework */; };
@@ -91,6 +95,10 @@
 		026E38761E4C27DB0000037E /* CenterCellFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CenterCellFlowLayout.swift; path = MovieTime/CenterCellFlowLayout.swift; sourceTree = SOURCE_ROOT; };
 		026E38781E4C376A0000037E /* DetailViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewExtensions.swift; sourceTree = "<group>"; };
 		026E387B1E4C37FE0000037E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		026E387D1E4C415E0000037E /* WatchLaterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchLaterViewController.swift; sourceTree = "<group>"; };
+		02D1710B1E4D384F00116823 /* WatchLaterMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchLaterMovie.swift; sourceTree = "<group>"; };
+		02D1710D1E4D519900116823 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
+		02D1710F1E4D655300116823 /* MoviesNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesNavigationController.swift; sourceTree = "<group>"; };
 		02ED9D001E494EA400D02A34 /* CollectionViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewProtocols.swift; sourceTree = "<group>"; };
 		2AD7CF76B285AEFF6ABFA875 /* Pods_MovieTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		706F96F84FC10FA274857697 /* Pods-MovieTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieTime/Pods-MovieTime.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,7 +157,6 @@
 				022880E41E47ACA90076270D /* GridCell.xib */,
 				022880E91E47AFDF0076270D /* ListCell.swift */,
 				022880EA1E47AFDF0076270D /* ListCell.xib */,
-				022880ED1E47E4580076270D /* MaterialCard.swift */,
 			);
 			name = CollectionViewCells;
 			sourceTree = "<group>";
@@ -179,6 +186,7 @@
 		023C8E011E2B265C007544E5 /* MovieTime */ = {
 			isa = PBXGroup;
 			children = (
+				022880ED1E47E4580076270D /* MaterialCard.swift */,
 				026E387A1E4C37E50000037E /* Colors */,
 				02ED9CFF1E4944C100D02A34 /* ViewControllers */,
 				026E386D1E4BC82D0000037E /* SearchControllerExtension */,
@@ -222,6 +230,7 @@
 		026E38621E4A9F880000037E /* Protocols and Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				02D1710D1E4D519900116823 /* CoreDataExtensions.swift */,
 				02ED9D001E494EA400D02A34 /* CollectionViewProtocols.swift */,
 				026E38631E4A9FA80000037E /* CollectionViewExtensions.swift */,
 				026E38701E4BC98F0000037E /* CollectionViewMethods.swift */,
@@ -265,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				022F53791E2B5140004CB060 /* Movie.swift */,
+				02D1710B1E4D384F00116823 /* WatchLaterMovie.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -284,6 +294,8 @@
 			children = (
 				022F53751E2B3F4A004CB060 /* MoviesViewController.swift */,
 				0243F71E1E330BCF004ED56E /* DetailViewController.swift */,
+				026E387D1E4C415E0000037E /* WatchLaterViewController.swift */,
+				02D1710F1E4D655300116823 /* MoviesNavigationController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -602,12 +614,16 @@
 				02ED9D011E494EA400D02A34 /* CollectionViewProtocols.swift in Sources */,
 				026E386F1E4BC84F0000037E /* SearchControllerExtension.swift in Sources */,
 				022880E81E47AE810076270D /* ListFlowLayout.swift in Sources */,
+				026E387E1E4C415E0000037E /* WatchLaterViewController.swift in Sources */,
 				026E38771E4C27DB0000037E /* CenterCellFlowLayout.swift in Sources */,
 				026E38661E4AA0DE0000037E /* GetMoviesExtension.swift in Sources */,
+				02D1710C1E4D384F00116823 /* WatchLaterMovie.swift in Sources */,
 				022880E11E47ABD20076270D /* GridFlowLayout.swift in Sources */,
 				026E387C1E4C37FE0000037E /* Colors.swift in Sources */,
 				022F53761E2B3F4A004CB060 /* MoviesViewController.swift in Sources */,
+				02D1710E1E4D519900116823 /* CoreDataExtensions.swift in Sources */,
 				022880EE1E47E4580076270D /* MaterialCard.swift in Sources */,
+				02D171101E4D655300116823 /* MoviesNavigationController.swift in Sources */,
 				022880EB1E47AFDF0076270D /* ListCell.swift in Sources */,
 				022880E51E47ACA90076270D /* GridCell.swift in Sources */,
 				026E38711E4BC98F0000037E /* CollectionViewMethods.swift in Sources */,

@@ -66,3 +66,40 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+extension WatchLaterViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard watchLaterFiltered != nil else {print("No Movies"); return 0}
+        
+        return watchLaterFiltered.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let gridCell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as GridCell
+        let listCell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as ListCell
+        let movie = watchLaterFiltered[indexPath.row]
+        
+        switch isGridFlowLayoutUsed {
+        case true:
+            return gridCell.bind(movie)
+        case false:
+            return listCell.bind(movie)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = watchLaterCollectionView.cellForItem(at: indexPath) as! GridCell
+        let movie = watchLaterFiltered[indexPath.row]
+//        //guard let movie = movies[(cell.tag)] as? Movie else {print("error passing data")}
+        guard cell != nil else {return}
+//        print(movie)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+//      this is the data which will be passed to the new vc
+        vc.movie = movie
+    
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
