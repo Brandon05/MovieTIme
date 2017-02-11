@@ -73,38 +73,29 @@ extension WatchLaterViewController: CoreData {
         
         do {
             let results = try context.fetch(request) as [WatchLaterMovie]
-            // Cast NSManagedObject from core data to type Movie
-            var data = typeMovie(results)
-            // Find intersection between results and watchLaterFiltered
-            //Write function to cast WatchLaterMovie to type Movie
-            // Filter new results
-            /// append remaining Movies
-            // Filter for intersection between watchLaterFiltered and Core Data
-            let filteredData = data.filter {(!watchLaterFiltered.contains($0))}
-//            let predicate = NSPredicate(
-//            (results as NSArray).filtered(using: )
-           // let filteredResults = removeDuplicateMovies(in: results)
-            // Iterating through [WatchLaterMovie] to cast it from type 'NSManagedObject' to 'Movie' type
-            for movie in filteredData {
-                
-                //print(result)
-                //let movie = Movie(title: result.title!, overview: result.overview!, posterPath: result.posterPath!, backdropPath: result.backdropPath!, voteAverage: result.voteAverage as! Double, voteCount: Int(result.voteCount!), id: Int(result.id!))
-                //data.append(movie)
-            }
-            // Append intersection of current data source and Core Data
-            // Reversed to show latest saved movie
+            
+            // Cast NSManagedObject from core data to type Movie and append
+
             watchLaterAll = typeMovie(results)
             watchLaterFiltered = typeMovie(results)
-            //watchLaterAll.append(contentsOf: filteredData)
-            //watchLaterFiltered.append(contentsOf: filteredData)
-            // Remove duplicates since I add all movies, including existing ones, on each fetchRequest()
-//            watchLaterAll = removeDuplicateMovies(in: data)
-//            watchLaterFiltered = removeDuplicateMovies(in: data)
+
             watchLaterCollectionView.reloadData()
             refreshControl.endRefreshing()
         } catch {
             print("Fetching Failed")
         }
+    }
+    
+        // MARK:- Cast NSManagedObject to Movie
+    func typeMovie(_ movies: [WatchLaterMovie]) -> [Movie] {
+        var castedMovies = [Movie]()
+        // A flatmap method may be better? Guard against nil
+        for result in movies {
+        let castedMovie = Movie(title: result.title!, overview: result.overview!, posterPath: result.posterPath!, backdropPath: result.backdropPath!, voteAverage: result.voteAverage as! Double, voteCount: Int(result.voteCount!), id: Int(result.id!))
+            castedMovies.append(castedMovie)
+        }
+        // return reversed so the latest saved movie is first
+        return castedMovies.reversed()
     }
     
     // Beacause I am casting NSManagedObject into the struct Movie and then appending to the collectionviewdatasource, movies are duplicated on each fetchRequest()
@@ -119,17 +110,7 @@ extension WatchLaterViewController: CoreData {
         return uniquePosts.reversed()
     }
     
-    // MARK:- Cast NSManagedObject to Movie
-    func typeMovie(_ movies: [WatchLaterMovie]) -> [Movie] {
-        var castedMovies = [Movie]()
-        // A flatmap method may be better? Guard against nil
-        for result in movies {
-        let castedMovie = Movie(title: result.title!, overview: result.overview!, posterPath: result.posterPath!, backdropPath: result.backdropPath!, voteAverage: result.voteAverage as! Double, voteCount: Int(result.voteCount!), id: Int(result.id!))
-            castedMovies.append(castedMovie)
-        }
-        // return reversed so the latest saved movie is first
-        return castedMovies.reversed()
-    }
+
     
 }
 
