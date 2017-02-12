@@ -123,16 +123,25 @@ class DetailViewController: UIViewController {
             
             backdropImageView.image = image
             backdropImageView.contentMode = .scaleAspectFill
+            
+            // Image from colors
+            let colorsFromMovie = ColorsFromImage(image!, withFlatScheme: true)
+            let gradient = GradientColor(.topToBottom, frame: self.view.frame, colors: [colorsFromMovie[0], colorsFromMovie[1], colorsFromMovie[2]])
+            self.view.backgroundColor = gradient
+            self.baseView.backgroundColor = UIColor.clear
+            self.scrollView.backgroundColor = UIColor.clear
+            self.navigationController?.navigationBar.tintColor = colorsFromMovie[0]
+            print(colorsFromMovie)
         }
     }
     
     // MARK:- UI
     func configureViews() {
-        var gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = self.view.frame
-        gradient.colors = [UIColor.clear.cgColor, colorSheet().alabaster?.cgColor]
-        gradient.locations = [0.1, 0.4]
-        backdropImageView.layer.insertSublayer(gradient, at: 0)
+//        var gradient: CAGradientLayer = CAGradientLayer()
+//        gradient.frame = self.view.frame
+//        gradient.colors = [UIColor.clear.cgColor, colorSheet().alabaster?.cgColor]
+//        gradient.locations = [0.1, 0.4]
+//        backdropImageView.layer.insertSublayer(gradient, at: 0)
         
         //Material Button
 //        buyButton.backgroundColor = UIColor.clear

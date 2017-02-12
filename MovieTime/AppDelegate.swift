@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import ChameleonFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,8 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        UINavigationBar.appearance().barTintColor = colorSheet().oysterBay
-        UITabBar.appearance().barTintColor = colorSheet().oysterBay
+        UINavigationBar.appearance().barTintColor = UIColor(gradientStyle: .topToBottom, withFrame: UINavigationBar().frame, andColors: [Colors().primaryColor!, Colors().secondaryColor!])//Colors().primaryColor
+        UITabBar.appearance().barTintColor = UIColor.clear//UIColor(gradientStyle: .topToBottom, withFrame: tabBarControler.tabBar.frame, andColors: [Colors().secondaryColor!, Colors().primaryColor!])//Colors().primaryColor
+        let image = UIImage()
+        tabBarControler.tabBar.backgroundImage = UIImage.imageWithColor(color: UIColor.clear)
+        //UITabBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        UITabBar.appearance().shadowImage = UIImage.imageWithColor(color: UIColor.clear)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -37,10 +42,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarControler.tabBar.items?[0].title = "Now Playing"
         tabBarControler.tabBar.items?[1].title = "Top Rated"
         tabBarControler.tabBar.items?[2].title = "Watch Later"
+        tabBarControler.tabBar.items?[0].image = #imageLiteral(resourceName: "nowPlayingIcon")
+        tabBarControler.tabBar.items?[1].image = #imageLiteral(resourceName: "topRatedIcon")
+        tabBarControler.tabBar.items?[0].selectedImage = #imageLiteral(resourceName: "nowPlayingSelected")
+        tabBarControler.tabBar.items?[1].selectedImage = #imageLiteral(resourceName: "topRatedSelected")
+        //tabBarControler.tabBar.items?[2].title
         
         let moviesNavigationController = UINavigationController(rootViewController: tabBarControler)
         
         nowPlayingViewController.navigationController?.tabBarItem.title = "Now Playing"
+        
+//        moviesNavigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        moviesNavigationController.navigationBar.shadowImage = UIImage()
+        //moviesNavigationController.navigationBar.barTintColor = UIColor(gradientStyle: .topToBottom, withFrame: UINavigationBar().frame, andColors: [Colors().primaryColor!, Colors().secondaryColor!])
         
         window?.rootViewController = moviesNavigationController
         window?.makeKeyAndVisible()

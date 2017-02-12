@@ -21,6 +21,10 @@ extension MoviesViewController {
         let gridCell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as GridCell
         let listCell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as ListCell
         let movie = filteredData[indexPath.row]
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector((MoviesViewController.didTap(_:))))
+        // Add tap gesture recognizer on text view to segue to detail
+        //listCell.descriptionTextView.addGestureRecognizer(tapGesture)
+        
         
         switch isGridFlowLayoutUsed {
         case true:
@@ -90,7 +94,11 @@ extension WatchLaterViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let cell = watchLaterCollectionView.cellForItem(at: indexPath) as! GridCell
+        let cell = watchLaterCollectionView.cellForItem(at: indexPath)
+//        cell?.tag = indexPath.row
+//        self.performSegue(withIdentifier: "DetailSegue", sender: cell)
+        
+        //let cell = watchLaterCollectionView.cellForItem(at: indexPath) as! GridCell
         let movie = watchLaterFiltered[indexPath.row]
 //        //guard let movie = movies[(cell.tag)] as? Movie else {print("error passing data")}
         guard cell != nil else {return}

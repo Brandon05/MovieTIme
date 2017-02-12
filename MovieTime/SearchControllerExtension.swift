@@ -25,7 +25,9 @@ extension MoviesViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         
         searchController.searchBar.sizeToFit()
-        searchView.addSubview(searchController.searchBar)
+        //searchView.addSubview(searchController.searchBar)
+        self.navigationController?.navigationBar.topItem?.titleView = searchController.searchBar
+        //self.searchView.alpha = 0
         
         // Sets this view controller as presenting view controller for the search interface
         definesPresentationContext = true
@@ -76,7 +78,7 @@ extension WatchLaterViewController: UISearchResultsUpdating, UISearchBarDelegate
         searchController.hidesNavigationBarDuringPresentation = false
         
         searchController.searchBar.sizeToFit()
-        searchView.addSubview(searchController.searchBar)
+        //searchView.addSubview(searchController.searchBar)
         
         // Sets this view controller as presenting view controller for the search interface
         definesPresentationContext = true
