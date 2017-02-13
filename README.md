@@ -100,7 +100,7 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://imgur.com/w9d62ko.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-The gif may be too long, here is  a link: http://imgur.com/w9d62ko
+The **GIF** may be too long, here is  a link: http://imgur.com/w9d62ko
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
