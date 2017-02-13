@@ -20,12 +20,15 @@ class DetailViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var baseView: UIView!
     @IBOutlet var backdropImageView: UIImageView!
-    @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var voteCountLabel: UILabel!
     @IBOutlet var voteAverageLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var youtubeWebView: MaterialWebView!
     @IBOutlet var recommendedCollectionView: UICollectionView!
+    
+    @IBOutlet var voteCountImageView: UIImageView!
+    @IBOutlet var ratingImageView: UIImageView!
+    
     let defaults = UserDefaults.standard
     var recommendedMovies = [Movie]()
     
@@ -55,7 +58,7 @@ class DetailViewController: UIViewController {
         self.baseView.translatesAutoresizingMaskIntoConstraints = false
         
         // UI
-        setLabelColors(color: colorSheet().stoneCold!)
+        setLabelColors(color: Colors().white!)
         setMovieDetails()
         configureViews()
             
@@ -110,8 +113,9 @@ class DetailViewController: UIViewController {
             //print(descriptionLabel.text)
             voteCountLabel.text = String(movie.voteCount)
             voteAverageLabel.text = String(movie.voteAverage)
+            voteCountImageView.image = #imageLiteral(resourceName: "reviews")
+            ratingImageView.image = setRatingImage(for: movie.voteAverage)
             
-            posterImageView.af_setImage(withURL: URL(string: movie.posterPath)!)
             //backdropImageView.af_setImage(withURL: URL(string: movie.backdropPath)!)
             //backdropImageView.contentMode = .scaleAspectFill
             let url = URL(string: movie.backdropPath)!
@@ -123,16 +127,32 @@ class DetailViewController: UIViewController {
             
             backdropImageView.image = image
             backdropImageView.contentMode = .scaleAspectFill
+            
+            // Image from colors
+            let colorsFromMovie = ColorsFromImage(image!, withFlatScheme: true)
+            let gradient = GradientColor(.topToBottom, frame: self.view.frame, colors: [colorsFromMovie[2], colorsFromMovie[3], colorsFromMovie[4]]) //
+            self.view.backgroundColor = gradient
+            self.baseView.backgroundColor = UIColor.clear
+            self.scrollView.backgroundColor = UIColor.clear
+            //self.navigationController?.navigationBar.tintColor = colorsFromMovie[0]
+            print(colorsFromMovie)
+            
+            // Gradient for backdrop picture
+            var imageGradient: CAGradientLayer = CAGradientLayer()
+            imageGradient.frame = self.backdropImageView.frame
+            imageGradient.colors = [UIColor.clear.cgColor, gradient.cgColor]
+            imageGradient.locations = [0.1, 0.9]
+            self.backdropImageView.layer.insertSublayer(imageGradient, at: 0)
         }
     }
     
     // MARK:- UI
     func configureViews() {
         var gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = self.view.frame
-        gradient.colors = [UIColor.clear.cgColor, colorSheet().alabaster?.cgColor]
-        gradient.locations = [0.1, 0.4]
-        backdropImageView.layer.insertSublayer(gradient, at: 0)
+        gradient.frame = self.backdropImageView.frame
+        gradient.colors = [UIColor.clear.cgColor, Colors().white?.cgColor]
+        gradient.locations = [0.1, 0.9]
+        //backdropImageView.layer.insertSublayer(gradient, at: 0)
         
         //Material Button
 //        buyButton.backgroundColor = UIColor.clear
@@ -144,17 +164,17 @@ class DetailViewController: UIViewController {
     }
     
     func didHold(sender: UIButton) {
-        sender.superview?.backgroundColor = UIColor.flatRedDark
+        sender.superview?.backgroundColor = Colors().white?.darken(byPercentage: 0.5)
     }
     
     func didRelease(sender: UIButton) {
-        sender.superview?.backgroundColor = UIColor.flatRed
+        sender.superview?.backgroundColor = Colors().white
     }
     
     func didSave(sender: UIButton) {
         save(self.movie)
         defaults.set(true, forKey: "\(movie.id)")
-        sender.superview?.backgroundColor = UIColor.flatRedDark
+        sender.superview?.backgroundColor = Colors().white?.darken(byPercentage: 0.5)
         sender.setTitle(" Saved ", for: [])
         UIView.animate(withDuration: 0.2) { 
             sender.layoutIfNeeded()
@@ -169,7 +189,7 @@ class DetailViewController: UIViewController {
     func didRemove(sender: UIButton) {
         // Remove from Core Data
         removeData(for: self.movie)
-        sender.superview?.backgroundColor = UIColor.flatRed
+        sender.superview?.backgroundColor = Colors().white
         sender.setTitle(" Watch Later ", for: [])
         UIView.animate(withDuration: 0.2) {
             sender.layoutIfNeeded()
@@ -185,13 +205,13 @@ class DetailViewController: UIViewController {
         // Check if movie has been saved already
         if title == " Watch Later " && defaults.bool(forKey: "\(movie.id)") == true {
             button.setTitle(" Saved ", for: [])
-            button.superview?.backgroundColor = UIColor.flatRedDark
+            button.superview?.backgroundColor = Colors().white?.darken(byPercentage: 0.5)
         } else {
             button.setTitle(title, for: [])
-            button.superview?.backgroundColor = UIColor.flatRed
+            button.superview?.backgroundColor = Colors().white
         }
         
-        button.titleLabel?.textColor = UIColor.flatWhite
+        button.setTitleColor(Colors().primaryColor, for: .normal)
         button.backgroundColor = UIColor.clear
     }
         
@@ -211,6 +231,20 @@ class DetailViewController: UIViewController {
         UIApplication.shared.open(url, options: [:]) { (Bool) in
             
         }
+    }
+    
+    func setRatingImage(for rating: Double) -> UIImage? {
+        switch rating {
+        case 7.0...10.0:
+            return #imageLiteral(resourceName: "happyImage")
+        case 5.0..<7.0:
+            return #imageLiteral(resourceName: "neutralImage")
+        case 0.0..<5.0:
+            return #imageLiteral(resourceName: "sadImage")
+        default:
+            break
+        }
+        return nil
     }
     /*
     // MARK: - Navigation

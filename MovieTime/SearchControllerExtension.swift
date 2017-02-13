@@ -25,10 +25,20 @@ extension MoviesViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         
         searchController.searchBar.sizeToFit()
-        searchView.addSubview(searchController.searchBar)
+        //searchView.addSubview(searchController.searchBar)
+        self.navigationController?.navigationBar.topItem?.titleView = searchController.searchBar
+        //self.searchView.alpha = 0
         
         // Sets this view controller as presenting view controller for the search interface
         definesPresentationContext = true
+        
+        searchController.searchBar.tintColor = color.secondaryColor?.lighten(byPercentage: 0.5)
+        var textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        searchController.searchBar.setSearchColor()
+        searchController.searchBar.setSerchTextcolor(color: UIColor.flatWhite)
+        
+        textFieldInsideSearchBar?.textColor = UIColor.flatWhite
+        textFieldInsideSearchBar?.backgroundColor = color.secondaryColor
     }
     
     @available(iOS 8.0, *)
@@ -76,10 +86,18 @@ extension WatchLaterViewController: UISearchResultsUpdating, UISearchBarDelegate
         searchController.hidesNavigationBarDuringPresentation = false
         
         searchController.searchBar.sizeToFit()
-        searchView.addSubview(searchController.searchBar)
+        //searchView.addSubview(searchController.searchBar)
         
         // Sets this view controller as presenting view controller for the search interface
         definesPresentationContext = true
+        
+        searchController.searchBar.tintColor = Colors().secondaryColor?.lighten(byPercentage: 0.5)
+        var textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        searchController.searchBar.setSearchColor()
+        searchController.searchBar.setSerchTextcolor(color: UIColor.flatWhite)
+        
+        textFieldInsideSearchBar?.textColor = UIColor.flatWhite
+        textFieldInsideSearchBar?.backgroundColor = Colors().secondaryColor
     }
     
     @available(iOS 8.0, *)
