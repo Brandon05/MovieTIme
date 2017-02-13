@@ -15,7 +15,7 @@ extension MoviesViewController {
     func concentricProgressRing() -> ConcentricProgressRingView {
         
         let rings = [
-                    ProgressRing(color: UIColor.flatBlack, backgroundColor: UIColor.clear, width: 15),
+                    ProgressRing(color: Colors().white!, backgroundColor: UIColor.clear, width: 15),
                     //ProgressRing(color: fgColor2, backgroundColor: bgColor2, width: 30),
                     ]
         

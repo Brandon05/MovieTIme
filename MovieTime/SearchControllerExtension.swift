@@ -31,6 +31,14 @@ extension MoviesViewController {
         
         // Sets this view controller as presenting view controller for the search interface
         definesPresentationContext = true
+        
+        searchController.searchBar.tintColor = color.secondaryColor?.lighten(byPercentage: 0.5)
+        var textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        searchController.searchBar.setSearchColor()
+        searchController.searchBar.setSerchTextcolor(color: UIColor.flatWhite)
+        
+        textFieldInsideSearchBar?.textColor = UIColor.flatWhite
+        textFieldInsideSearchBar?.backgroundColor = color.secondaryColor
     }
     
     @available(iOS 8.0, *)
@@ -82,6 +90,14 @@ extension WatchLaterViewController: UISearchResultsUpdating, UISearchBarDelegate
         
         // Sets this view controller as presenting view controller for the search interface
         definesPresentationContext = true
+        
+        searchController.searchBar.tintColor = Colors().secondaryColor?.lighten(byPercentage: 0.5)
+        var textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        searchController.searchBar.setSearchColor()
+        searchController.searchBar.setSerchTextcolor(color: UIColor.flatWhite)
+        
+        textFieldInsideSearchBar?.textColor = UIColor.flatWhite
+        textFieldInsideSearchBar?.backgroundColor = Colors().secondaryColor
     }
     
     @available(iOS 8.0, *)

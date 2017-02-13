@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="140" id="mNy-Mv-jRN"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEf-C8-KpX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="751" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEf-C8-KpX">
                                 <rect key="frame" x="108" y="3" width="308" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -74,16 +74,16 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-9M-iRK">
-                                <rect key="frame" x="143" y="117" width="20" height="21"/>
+                                <rect key="frame" x="124" y="108" width="35" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="NBl-ib-XHB"/>
-                                    <constraint firstAttribute="height" constant="21" id="Wzv-nx-0AD"/>
+                                    <constraint firstAttribute="width" constant="35" id="NBl-ib-XHB"/>
+                                    <constraint firstAttribute="height" constant="32" id="Wzv-nx-0AD"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="e0Y-9M-iRK" firstAttribute="leading" secondItem="k8l-Tw-wdK" secondAttribute="trailing" constant="43" id="0nE-MC-Ime"/>
+                            <constraint firstItem="e0Y-9M-iRK" firstAttribute="leading" secondItem="k8l-Tw-wdK" secondAttribute="trailing" constant="24" id="0nE-MC-Ime"/>
                             <constraint firstItem="mEf-C8-KpX" firstAttribute="leading" secondItem="k8l-Tw-wdK" secondAttribute="trailing" constant="8" id="4CY-5w-Rak"/>
                             <constraint firstItem="JT9-uL-gKI" firstAttribute="leading" secondItem="k8l-Tw-wdK" secondAttribute="trailing" constant="8" id="B0S-ou-pbb"/>
                             <constraint firstAttribute="bottom" secondItem="TBB-bW-bNz" secondAttribute="bottom" constant="6" id="Bv6-Kr-Cb9"/>
@@ -95,11 +95,11 @@
                             <constraint firstAttribute="trailing" secondItem="mEf-C8-KpX" secondAttribute="trailing" constant="8" id="Ub9-0n-dbf"/>
                             <constraint firstItem="TOk-Jj-CMV" firstAttribute="leading" secondItem="RFm-RK-NWE" secondAttribute="trailing" constant="14" id="XTE-9g-Eq2"/>
                             <constraint firstItem="k8l-Tw-wdK" firstAttribute="leading" secondItem="mai-ba-zpT" secondAttribute="leading" constant="3" id="Z9g-JN-UPj"/>
-                            <constraint firstItem="e0Y-9M-iRK" firstAttribute="top" secondItem="vzy-Wy-RSC" secondAttribute="bottom" constant="13" id="Zj1-4P-5A6"/>
+                            <constraint firstItem="e0Y-9M-iRK" firstAttribute="top" secondItem="vzy-Wy-RSC" secondAttribute="bottom" constant="4" id="Zj1-4P-5A6"/>
                             <constraint firstItem="JT9-uL-gKI" firstAttribute="top" secondItem="RFm-RK-NWE" secondAttribute="bottom" constant="11" id="aGM-WN-XhF"/>
                             <constraint firstItem="k8l-Tw-wdK" firstAttribute="top" secondItem="mai-ba-zpT" secondAttribute="top" constant="3" id="buh-hV-MvX"/>
                             <constraint firstItem="mEf-C8-KpX" firstAttribute="top" secondItem="mai-ba-zpT" secondAttribute="top" constant="3" id="dFu-fX-I9U"/>
-                            <constraint firstAttribute="bottom" secondItem="e0Y-9M-iRK" secondAttribute="bottom" constant="8" id="dsI-0y-htp"/>
+                            <constraint firstAttribute="bottom" secondItem="e0Y-9M-iRK" secondAttribute="bottom" constant="6" id="dsI-0y-htp"/>
                             <constraint firstAttribute="trailing" secondItem="TBB-bW-bNz" secondAttribute="trailing" constant="8" id="fag-4V-fHe"/>
                             <constraint firstItem="vzy-Wy-RSC" firstAttribute="leading" secondItem="JT9-uL-gKI" secondAttribute="trailing" constant="14" id="hMw-D5-pud"/>
                             <constraint firstItem="RFm-RK-NWE" firstAttribute="leading" secondItem="k8l-Tw-wdK" secondAttribute="trailing" constant="8" id="iHB-hr-eSs"/>
@@ -122,7 +122,9 @@
                 <outlet property="baseView" destination="mai-ba-zpT" id="LId-rA-hyy"/>
                 <outlet property="descriptionTextView" destination="TBB-bW-bNz" id="Hnn-Eq-ETg"/>
                 <outlet property="moviePosterImageView" destination="k8l-Tw-wdK" id="jtK-PT-m15"/>
+                <outlet property="ratingImageView" destination="vzy-Wy-RSC" id="RIi-xE-fNU"/>
                 <outlet property="releaseDate" destination="hBf-Bm-WlW" id="UIJ-GH-x3X"/>
+                <outlet property="reviewsImageView" destination="TOk-Jj-CMV" id="ON1-pe-khY"/>
                 <outlet property="segueImageView" destination="e0Y-9M-iRK" id="Ll2-QD-UBa"/>
                 <outlet property="titleLabel" destination="mEf-C8-KpX" id="xze-JL-NfR"/>
                 <outlet property="voteAverageLabel" destination="JT9-uL-gKI" id="G6M-BG-c8s"/>

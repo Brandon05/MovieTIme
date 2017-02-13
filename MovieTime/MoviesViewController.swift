@@ -69,8 +69,8 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
         moviesCollectionView.delegate = self
         
         self.automaticallyAdjustsScrollViewInsets = false
-        deleteRecords()
-        clearDefaults()
+        //deleteRecords()
+        //clearDefaults()
         
         //refreshRingView?.arcs[0].setProgress(progress: 1, duration: 0.1)
         
@@ -138,13 +138,13 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
         // Collectionview
         moviesCollectionView.backgroundColor = UIColor.clear
         self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [Colors().primaryColor!, Colors().secondaryColor!])
-        searchController.searchBar.tintColor = color.secondaryColor?.lighten(byPercentage: 0.5)
-        var textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
-        searchController.searchBar.setSearchColor()
-        searchController.searchBar.setSerchTextcolor(color: UIColor.flatWhite)
-        
-        textFieldInsideSearchBar?.textColor = UIColor.flatWhite
-        textFieldInsideSearchBar?.backgroundColor = color.secondaryColor
+//        searchController.searchBar.tintColor = color.secondaryColor?.lighten(byPercentage: 0.5)
+//        var textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
+//        searchController.searchBar.setSearchColor()
+//        searchController.searchBar.setSerchTextcolor(color: UIColor.flatWhite)
+//        
+//        textFieldInsideSearchBar?.textColor = UIColor.flatWhite
+//        textFieldInsideSearchBar?.backgroundColor = color.secondaryColor
         
         // Navbar
         self.navigationController?.navigationBar.tintColor = Colors().secondaryColor// items

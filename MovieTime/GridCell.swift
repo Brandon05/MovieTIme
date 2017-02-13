@@ -61,6 +61,7 @@ class GridCell: UICollectionViewCell {
         voteCountLabel.text = String(movie.voteCount)
         segueImageView.image = #imageLiteral(resourceName: "trailerIcon")
         ratingImageView.image = setRatingImage(for: movie.voteAverage)
+        reviewsImageView.image = #imageLiteral(resourceName: "reviews")
         
         return self
     }
@@ -93,19 +94,19 @@ class GridCell: UICollectionViewCell {
         onLabel.layer.shadowRadius = 6
     }
     
-    func setRatingImage(for rating: Double) -> UIImage? {
-        switch rating {
-        case 7.0...10.0:
-            return #imageLiteral(resourceName: "happyImage")
-        case 5.0..<7.0:
-            return #imageLiteral(resourceName: "neutralImage")
-        case 0.0..<5.0:
-            return #imageLiteral(resourceName: "sadImage")
-        default:
-            break
-        }
-        return nil
-    }
+//    func setRatingImage(for rating: Double) -> UIImage? {
+//        switch rating {
+//        case 7.0...10.0:
+//            return #imageLiteral(resourceName: "happyImage")
+//        case 5.0..<7.0:
+//            return #imageLiteral(resourceName: "neutralImage")
+//        case 0.0..<5.0:
+//            return #imageLiteral(resourceName: "sadImage")
+//        default:
+//            break
+//        }
+//        return nil
+//    }
     
 //    override func layoutSubviews() {
 //        //super.layoutSubviews()
@@ -122,13 +123,9 @@ class GridCell: UICollectionViewCell {
 
 extension UILabel {
     func colorAndShadow() {
-        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowOffset = CGSize(width: 0, height: 2)
         self.layer.shadowOpacity = 1
         self.layer.shadowRadius = 6
-        self.textColor = Colors().white
-    }
-    
-    func addTextColor() {
         self.textColor = Colors().white
     }
 }
@@ -140,4 +137,22 @@ extension UITextView {
         self.layer.shadowRadius = 6
         self.textColor = Colors().white
     }
+}
+
+extension UICollectionViewCell {
+    
+    func setRatingImage(for rating: Double) -> UIImage? {
+        switch rating {
+        case 7.0...10.0:
+            return #imageLiteral(resourceName: "happyImage")
+        case 5.0..<7.0:
+            return #imageLiteral(resourceName: "neutralImage")
+        case 0.0..<5.0:
+            return #imageLiteral(resourceName: "sadImage")
+        default:
+            break
+        }
+        return nil
+    }
+    
 }

@@ -12,7 +12,7 @@ import CoreData
 class WatchLaterViewController: UIViewController {
 
     @IBOutlet var watchLaterCollectionView: UICollectionView!
-    @IBOutlet var searchView: UIView!
+
     
     var watchLaterAll = [Movie]()
     var watchLaterFiltered = [Movie]()
@@ -54,11 +54,13 @@ class WatchLaterViewController: UIViewController {
         searchController.dismiss(animated: true, completion: nil)
         getData()
         
-        self.navigationController?.navigationBar.topItem?.title = "Watch Later"
+        //self.navigationController?.navigationBar.topItem?.title = "Watch Later"
         let switchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "gridIcon"), style: .plain, target: self, action: #selector(onSwitch(_:)))
         self.navigationItem.rightBarButtonItem  = switchButton
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = switchButton
         //self.watchLaterCollectionView.load(layout: gridFlowLayout)
+        watchLaterCollectionView.backgroundColor = UIColor.clear
+        self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [Colors().primaryColor!, Colors().secondaryColor!])
     }
 
     override func didReceiveMemoryWarning() {

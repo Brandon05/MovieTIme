@@ -44,8 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarControler.tabBar.items?[2].title = "Watch Later"
         tabBarControler.tabBar.items?[0].image = #imageLiteral(resourceName: "nowPlayingIcon")
         tabBarControler.tabBar.items?[1].image = #imageLiteral(resourceName: "topRatedIcon")
+        tabBarControler.tabBar.items?[2].image = #imageLiteral(resourceName: "watchLaterIcon")
         tabBarControler.tabBar.items?[0].selectedImage = #imageLiteral(resourceName: "nowPlayingSelected")
         tabBarControler.tabBar.items?[1].selectedImage = #imageLiteral(resourceName: "topRatedSelected")
+        tabBarControler.tabBar.items?[2].selectedImage = #imageLiteral(resourceName: "watchLaterSelected")
         //tabBarControler.tabBar.items?[2].title
         
         let moviesNavigationController = UINavigationController(rootViewController: tabBarControler)
