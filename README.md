@@ -74,7 +74,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough:
 
-<img src='http://imgur.com/w9d62ko.gif' title='Video Walkthrough' width='' alt='http://imgur.com/w9d62ko' />
+<img src='w9d62ko - Imgur.gif?raw=true' title='Video Walkthrough' width='' alt='http://imgur.com/w9d62ko' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
