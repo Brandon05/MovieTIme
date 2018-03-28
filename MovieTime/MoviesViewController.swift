@@ -271,22 +271,6 @@ class MoviesViewController: UIViewController, UIScrollViewDelegate, UISearchResu
 
 }
 
-extension UISearchBar {
-    public func setSerchTextcolor(color: UIColor) {
-        let clrChange = subviews.flatMap { $0.subviews }
-        guard let sc = (clrChange.filter { $0 is UITextField }).first as? UITextField else { return }
-        sc.textColor = color
-        UISearchBar.appearance().setImage(#imageLiteral(resourceName: "searchIcon"), for: UISearchBarIcon.search, state: UIControlState.normal)
-    }
-    
-    func setSearchColor() {
-        let placeholderAttributes: [String : AnyObject] = [NSForegroundColorAttributeName: UIColor.flatWhite, NSFontAttributeName: UIFont.systemFont(ofSize: UIFont.systemFontSize)]
-        let attributedPlaceholder: NSAttributedString = NSAttributedString(string: "Search Movies", attributes: placeholderAttributes)
-        let textFieldPlaceHolder = self.value(forKey: "searchField") as? UITextField
-        textFieldPlaceHolder?.attributedPlaceholder = attributedPlaceholder
-    }
-}
-
 struct Colors {
     var primaryColor = UIColor(hexString: "#4e69ac")
     var secondaryColor = UIColor(hexString: "#70a5d9")
